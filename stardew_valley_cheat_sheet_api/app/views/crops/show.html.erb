@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @crop.name %>
+</p>
+
+<p>
+  <strong>Img:</strong>
+  <%= @crop.img %>
+</p>
+
+<p>
+  <strong>Season:</strong>
+  <%= @crop.season %>
+</p>
+
+<p>
+  <strong>Grow:</strong>
+  <%= @crop.grow %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @crop.time %>
+</p>
+
+<p>
+  <strong>Sell price:</strong>
+  <%= @crop.sell_price %>
+</p>
+
+<p>
+  <strong>Uses:</strong>
+  <%= @crop.uses %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @crop.cost %>
+</p>
+
+<%= link_to 'Edit', edit_crop_path(@crop) %> |
+<%= link_to 'Back', crops_path %>

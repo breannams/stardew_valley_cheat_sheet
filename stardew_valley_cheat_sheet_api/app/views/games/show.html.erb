@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Farm name:</strong>
+  <%= @game.farm_name %>
+</p>
+
+<p>
+  <strong>Farm type:</strong>
+  <%= @game.farm_type %>
+</p>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>

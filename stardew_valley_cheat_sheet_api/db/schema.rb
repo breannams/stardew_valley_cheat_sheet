@@ -10,7 +10,72 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_24_012638) do
+ActiveRecord::Schema.define(version: 2021_09_24_033244) do
+
+  create_table "animals", force: :cascade do |t|
+    t.string "name"
+    t.string "img"
+    t.integer "cost"
+    t.string "requirements"
+    t.string "produce"
+    t.integer "sell_price"
+    t.integer "game_id"
+    t.index ["game_id"], name: "index_animals_on_game_id"
+  end
+
+  create_table "buildings", force: :cascade do |t|
+    t.string "name"
+    t.string "img"
+    t.string "cost"
+    t.string "use"
+    t.integer "game_id"
+    t.index ["game_id"], name: "index_buildings_on_game_id"
+  end
+
+  create_table "crops", force: :cascade do |t|
+    t.string "name"
+    t.string "img"
+    t.string "season"
+    t.string "grow_time"
+    t.integer "sell_price"
+    t.string "uses"
+    t.string "cost"
+    t.integer "game_id"
+    t.index ["game_id"], name: "index_crops_on_game_id"
+  end
+
+  create_table "festivals", force: :cascade do |t|
+    t.string "name"
+    t.string "date"
+    t.string "img"
+    t.string "time_location"
+    t.string "description"
+    t.string "purchases"
+    t.integer "game_id"
+    t.index ["game_id"], name: "index_festivals_on_game_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "farm_name"
+    t.string "farm_type"
+    t.string "pet_type"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "quests", force: :cascade do |t|
+    t.string "quest_type"
+    t.string "name"
+    t.text "description"
+    t.string "started_by"
+    t.string "requirements"
+    t.string "rewards"
+    t.boolean "completed"
+    t.integer "game_id"
+    t.index ["game_id"], name: "index_quests_on_game_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -19,6 +84,18 @@ ActiveRecord::Schema.define(version: 2021_09_24_012638) do
     t.boolean "admin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "villagers", force: :cascade do |t|
+    t.string "name"
+    t.string "birthday"
+    t.string "gifts"
+    t.integer "hearts"
+    t.string "heartevents"
+    t.boolean "marriage"
+    t.string "img"
+    t.integer "game_id"
+    t.index ["game_id"], name: "index_villagers_on_game_id"
   end
 
 end
