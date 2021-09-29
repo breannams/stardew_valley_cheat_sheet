@@ -1,6 +1,6 @@
 import react, {Component} from 'react'
-
-class Login extends Component {
+import LogIn from '../ApiRequests.js/logIn'
+class LoginForm extends Component {
 
     state = {
         username:"",
@@ -15,16 +15,7 @@ class Login extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        // console.log(this.inputNode1.value)
-        // console.log(this.inputNode2.value)
-    //     const formData = new FormData()
-    
-    // //     formData.append("username",this.inputNode1.value)
-    // //     formData.append("password", this.inputNode2.value)
-    //     fetch("http://localhost:3000/tokens", {method: 'POST', body: formData})
-    //     .then(resp => resp.json())
-    //     .then(resp => console.log(resp.jwt))
-    this.props.logIn(this.state)
+        this.props.logIn(this.state)
     }
 
 
@@ -44,9 +35,6 @@ render(){
     )
 }
 
-
-
-
 }
 
-export default Login;
+export default LoginForm;

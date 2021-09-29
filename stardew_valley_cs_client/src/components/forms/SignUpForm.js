@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-export default class SignUp extends Component{
+export default class SignUpForm extends Component{
 
     state = {
         email: '',
