@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
    skip_before_action :authorized, only: [:create, :index, :login]
 
+   def user_profile
+    render json: @user
+   end
+
+
    def index
     user = User.all 
     render json: user
@@ -9,31 +14,21 @@ class UsersController < ApplicationController
 
    def create
     @user = User.create(user_params)
-    if @user.valid?
-       @token = encode_token(user_id: @user.id) 
-      render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
-    else
-      render json: { error: 'failed to create user' }, status: :unprocessable_entity
-    end
-  #  byebug
+ 
+  render json: @user, status: :created
   end
 
   def login
     @user = User.find_by(username: params[:user][:username])
 
     if @user && @user.authenticate(params[:user][:password])
-      # token = encode_token({user_id: @user.id}) from OG testing just incase vvvvv ends up not working.
-      @token = encode_token(user_id: @user.id)
+   
+      @token = JWT.encode({user_id: @user.id}, Rails.application.secrets.secret_key_base[0])
       render json: {user: @user, token: @token}
     else
       render json: {error: "Invalid username or password"}
     end
   #  byebug
-  end
-
-
-  def auto_login
-    render json: @user
   end
 
 

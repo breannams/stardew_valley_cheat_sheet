@@ -12,7 +12,32 @@ export class App extends Component{
     error: ''
   }
 
-  // TO DO: put these in another file and import them 
+  componentDidMount () {
+    this.validation()
+  }
+  
+  // TO DO: put these in another file and import them CREATE CONTAINER FOR LOGIN/SIGNUP
+
+
+validation =() =>{
+  let token = localStorage.getItem('token')
+  if (token){
+  fetch('http://localhost:3000/profile', {
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  })
+  .then (resp => resp.json())
+  .then (user => {
+    if(user.id){
+      this.setState({
+        user: user
+      })
+    }
+  })
+}
+}
+
   signUp = user => {
     fetch('http://localhost:3000/users', {
       method: "POST",
@@ -72,7 +97,7 @@ export class App extends Component{
 
       <header className = "App-header">
 
-      {this.state.user.username ? <h2>Welcome to your stardew valley cheat sheet {this.state.user.username}</h2> :  <>  <div className = 'sign-up-log-in'><h2>Sign Up: <SignUp signUp= {this.signUp} />  or Login: <Login logIn = {this.logIn}/></h2></div></> }
+      {this.state.user.username ? <h2>Welcome to your stardew valley cheat sheet {this.state.user.username}</h2> :   <div className = 'sign-up-log-in'><h2>Sign Up: <SignUp signUp= {this.signUp} />  or Login: <Login logIn = {this.logIn}/></h2></div> }
      
      </header>
  

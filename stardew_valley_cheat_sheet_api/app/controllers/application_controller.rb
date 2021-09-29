@@ -1,21 +1,13 @@
 class ApplicationController < ActionController::API
+ 
     before_action :authorized
 
-    def encode_token(payload)
-        # JWT.encode(payload, 'my_s3cr3t')
-        JWT.encode({user_id: @user.id}, Rails.application.secrets.secret_key_base[0])
-      end
-  
-
-      def auth_header
-        request.headers['Authorization']
-      end
     
       def decoded_token
         if auth_header
           token = auth_header.split(' ')[1]
           begin
-            JWT.decode(token, 'my_s3cr3t', true, algorithm: 'HS256')
+           @user_id = JWT.decode(token, Rails.applications.secrets.secret_key_base[0][0]["user_id"])
           rescue JWT::DecodeError
             nil
           end
@@ -23,17 +15,27 @@ class ApplicationController < ActionController::API
       end
 
       def current_user
-        if decoded_token
-          user_id = decoded_token[0]['user_id']
-          @user = User.find_by(id: user_id)
+        auth_header = request.headers["Authorization"]
+        if auth_header
+            user_token = auth_header.split(" ")[1]
+            begin
+                @user_id = JWT.decode(user_token, Rails.application.secrets.secret_key_base[0])[0]["user_id"]
+            rescue JWT::DecodeError 
+                nil
+            end
         end
-      end
+        if(@user_id)
+            @user = User.find(@user_id)
+        else 
+            nil
+        end
+    end
     
       def logged_in?
         !!current_user
       end
 
       def authorized
-        render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
+        render json: { message: 'Please log in or signup' }, status: :unauthorized unless logged_in?
       end
 end
