@@ -8,7 +8,8 @@ import SignUp from './components/SignUp'
 // import Logout from './components/logout'
 export class App extends Component{
   state = {
-    user: {}
+    user: {},
+    error: ''
   }
 
   // TO DO: put these in another file and import them 
@@ -51,8 +52,13 @@ export class App extends Component{
       if (resp.token){
         localStorage.setItem('token', resp.token)
         this.setState({
-          user: resp.user
-        })
+            user: resp.user
+            })
+        }
+        else {
+            this.setState({
+                error: resp.error
+            })
       }
     })
   }
@@ -63,12 +69,13 @@ export class App extends Component{
  render (){
   return (
     <div className="App">
-     <header className = "App-header">
-      <h2>
-        
-      {this.state.user.username ? <h1>Welcome to your stardew valley cheat sheet {this.state.user.username}</h1> :  <>  <div className = 'sign-up-log-in'>Sign Up: <SignUp signUp= {this.signUp} />  or Login: <Login logIn = {this.logIn}/></div></> }
-     </h2>
+
+      <header className = "App-header">
+
+      {this.state.user.username ? <h2>Welcome to your stardew valley cheat sheet {this.state.user.username}</h2> :  <>  <div className = 'sign-up-log-in'><h2>Sign Up: <SignUp signUp= {this.signUp} />  or Login: <Login logIn = {this.logIn}/></h2></div></> }
+     
      </header>
+ 
 
     </div>
   );

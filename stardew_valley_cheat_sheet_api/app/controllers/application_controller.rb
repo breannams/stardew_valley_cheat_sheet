@@ -2,9 +2,11 @@ class ApplicationController < ActionController::API
     before_action :authorized
 
     def encode_token(payload)
-        JWT.encode(payload, 'my_s3cr3t')
+        # JWT.encode(payload, 'my_s3cr3t')
+        JWT.encode({user_id: @user.id}, Rails.application.secrets.secret_key_base[0])
       end
-    
+  
+
       def auth_header
         request.headers['Authorization']
       end
@@ -19,7 +21,7 @@ class ApplicationController < ActionController::API
           end
         end
       end
-    
+
       def current_user
         if decoded_token
           user_id = decoded_token[0]['user_id']

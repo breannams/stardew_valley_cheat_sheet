@@ -10,7 +10,7 @@ class UsersController < ApplicationController
    def create
     @user = User.create(user_params)
     if @user.valid?
-      # @token = encode_token(user_id: @user.id) from OG testing
+       @token = encode_token(user_id: @user.id) 
       render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
     else
       render json: { error: 'failed to create user' }, status: :unprocessable_entity
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
     if @user && @user.authenticate(params[:user][:password])
       # token = encode_token({user_id: @user.id}) from OG testing just incase vvvvv ends up not working.
-      @toekn = JWT.encode({user_id: @user.id}, Rails.application.secrets.secret_key_base[0])
+      @token = encode_token(user_id: @user.id)
       render json: {user: @user, token: @token}
     else
       render json: {error: "Invalid username or password"}
