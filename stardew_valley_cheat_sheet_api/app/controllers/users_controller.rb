@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
-   skip_before_action :authorized, only: [:create]
+   skip_before_action :authorized, only: [:create, :index]
 
-  # def profile
-  #   render json: { user: UserSerializer.new(current_user) }, status: :accepted
-  # end
- 
-  def create
+   def index
+    user = User.all 
+    render json: user
+
+   end
+
+   def create
     @user = User.create(user_params)
     if @user.valid?
       @token = encode_token(user_id: @user.id)
@@ -16,8 +18,25 @@ class UsersController < ApplicationController
    # byebug
   end
 
+  def login
+    @user = User.find_by(username: params[:username])
+
+    if @user && @user.authenticate(params[:password])
+      token = encode_token({user_id: @user.id})
+      render json: {user: @user, token: token}
+    else
+      render json: {error: "Invalid username or password"}
+    end
+  end
+
+
+  def auto_login
+    render json: @user
+  end
+
+
   private
   def user_params
-    params.permit(:username, :email, :password, :admin)
+    params.require(:user).permit(:username, :email, :password, :admin, :id)
   end
 end
