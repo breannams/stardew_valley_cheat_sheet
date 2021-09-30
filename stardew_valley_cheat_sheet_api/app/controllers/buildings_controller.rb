@@ -1,6 +1,6 @@
 class BuildingsController < ApplicationController
   before_action :set_building, only: %i[ show edit update destroy ]
-
+  skip_before_action :authorized
   # GET /buildings or /buildings.json
   def index
     @buildings = Building.all

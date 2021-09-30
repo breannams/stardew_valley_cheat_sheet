@@ -1,6 +1,6 @@
 class CropsController < ApplicationController
   before_action :set_crop, only: %i[ show edit update destroy ]
-
+  skip_before_action :authorized
   # GET /crops or /crops.json
   def index
     @crops = Crop.all

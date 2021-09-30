@@ -1,6 +1,6 @@
 class VillagersController < ApplicationController
   before_action :set_villager, only: %i[ show edit update destroy ]
-
+  skip_before_action :authorized
   # GET /villagers or /villagers.json
   def index
     @villagers = Villager.all
@@ -26,10 +26,10 @@ class VillagersController < ApplicationController
     respond_to do |format|
       if @villager.save
         format.html { redirect_to @villager, notice: "Villager was successfully created." }
-        format.json { render :show, status: :created, location: @villager }
+        # format.json { render :show, status: :created, location: @villager }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @villager.errors, status: :unprocessable_entity }
+        # format.json { render json: @villager.errors, status: :unprocessable_entity }
       end
     end
   end

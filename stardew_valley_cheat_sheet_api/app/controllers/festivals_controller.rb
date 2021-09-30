@@ -1,6 +1,6 @@
 class FestivalsController < ApplicationController
   before_action :set_festival, only: %i[ show edit update destroy ]
-
+  skip_before_action :authorized
   # GET /festivals or /festivals.json
   def index
     @festivals = Festival.all

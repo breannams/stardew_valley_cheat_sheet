@@ -1,6 +1,6 @@
 class QuestsController < ApplicationController
   before_action :set_quest, only: %i[ show edit update destroy ]
-
+  skip_before_action :authorized
   # GET /quests or /quests.json
   def index
     @quests = Quest.all

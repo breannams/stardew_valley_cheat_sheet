@@ -1,6 +1,6 @@
 class AnimalsController < ApplicationController
   before_action :set_animal, only: %i[ show edit update destroy ]
-
+  skip_before_action :authorized
   # GET /animals or /animals.json
   def index
     @animals = Animal.all
