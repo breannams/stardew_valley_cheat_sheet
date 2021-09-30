@@ -1,16 +1,30 @@
 
 import './App.css';
 import React, {Component} from 'react'
+import history from './helpers/history'
+import PrivateRoute from './components/PrivateRoute'
+import LoginForm from './components/LoginForm'
 import Homepage from './components/Homepage';
+import SignUpForm from './components/SignUpForm';
+import { Router, Route, Switch, Redirect } from 'react-router-dom';
 
-export class App extends Component{
-
+ class App extends Component{
+  
  render (){
   return (
     <div className="App">
 
       <header className = "App-header">
-      <Homepage />
+        <Router history = {history}>
+            <Switch>
+              <PrivateRoute exact path = '/' component= {Homepage}/>
+              <Route path = "/login" component= {LoginForm} />
+              <Route path = 'signup' component = {SignUpForm} />
+              <Redirect from="*" to= "/" />
+
+            </Switch>
+        </Router>
+
      </header>
  
 
