@@ -24,7 +24,7 @@ export default class SignUpForm extends Component{
     render(){
         return(
         <div>
-            <h1>Please Sign up:</h1>
+          
         <form onSubmit = {this.handleSubmit}>
    
             <label>Email: </label>
