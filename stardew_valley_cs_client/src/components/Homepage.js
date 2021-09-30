@@ -2,7 +2,6 @@ import  {Component} from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { userActions } from '../actions/userActions';
 
 
 class Homepage extends Component {
@@ -13,7 +12,7 @@ class Homepage extends Component {
     return(
         <div>
            <h1> Hello, {user.username}</h1>
-           <Link to= "/login"> Logout</Link>
+           {/* <Link to= "/login"> Logout</Link> */}
         </div>
     )
     }
