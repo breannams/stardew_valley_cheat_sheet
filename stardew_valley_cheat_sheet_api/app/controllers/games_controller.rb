@@ -66,4 +66,9 @@ class GamesController < ApplicationController
     def game_params
       params.require(:game).permit(:farm_name, :farm_type)
     end
+
+    def check_game_presence
+      redirect_to user_profile_path if current_user.game.exists?
+    end
+
 end
