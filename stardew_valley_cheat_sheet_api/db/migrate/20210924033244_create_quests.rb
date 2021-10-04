@@ -8,7 +8,7 @@ class CreateQuests < ActiveRecord::Migration[6.1]
       t.string :requirements
       t.string :rewards
       t.boolean :completed
-      t.belongs_to :stardewvalley
+      t.belongs_to :stardewvalley, default: 1
     end
   end
 end

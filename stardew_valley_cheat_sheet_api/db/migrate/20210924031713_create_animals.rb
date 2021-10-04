@@ -7,7 +7,7 @@ class CreateAnimals < ActiveRecord::Migration[6.1]
       t.string :requirements
       t.string :produce
       t.integer :sell_price
-      t.belongs_to :stardewvalley
+      t.belongs_to :stardewvalley, default: 1
       
     end
   end

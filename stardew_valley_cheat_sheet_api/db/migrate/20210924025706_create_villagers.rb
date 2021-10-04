@@ -8,7 +8,7 @@ class CreateVillagers < ActiveRecord::Migration[6.1]
       t.string :heartevents
       t.boolean :marriage
 
-      t.belongs_to :stardewvalley
+      t.belongs_to :stardewvalley, default: 1
       
     end
   end

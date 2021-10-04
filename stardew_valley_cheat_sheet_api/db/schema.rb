@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_10_04_220000) do
     t.string "requirements"
     t.string "produce"
     t.integer "sell_price"
-    t.integer "stardewvalley_id"
+    t.integer "stardewvalley_id", default: 1
     t.index ["stardewvalley_id"], name: "index_animals_on_stardewvalley_id"
   end
 
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_10_04_220000) do
     t.string "name"
     t.string "cost"
     t.string "use"
-    t.integer "stardewvalley_id"
+    t.integer "stardewvalley_id", default: 1
     t.index ["stardewvalley_id"], name: "index_buildings_on_stardewvalley_id"
   end
 
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_10_04_220000) do
     t.integer "sell_price"
     t.string "uses"
     t.string "cost"
-    t.integer "stardewvalley_id"
+    t.integer "stardewvalley_id", default: 1
     t.index ["stardewvalley_id"], name: "index_crops_on_stardewvalley_id"
   end
 
@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 2021_10_04_220000) do
     t.string "farm_name"
     t.string "farm_type"
     t.string "pet_type"
-    t.integer "stardewvalley_id"
-    t.index ["stardewvalley_id"], name: "index_farms_on_stardewvalley_id"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_farms_on_user_id"
   end
 
   create_table "festivals", force: :cascade do |t|
@@ -55,12 +55,12 @@ ActiveRecord::Schema.define(version: 2021_10_04_220000) do
     t.string "time_location"
     t.string "description"
     t.string "purchases"
-    t.integer "stardewvalley_id"
+    t.integer "stardewvalley_id", default: 1
     t.index ["stardewvalley_id"], name: "index_festivals_on_stardewvalley_id"
   end
 
   create_table "games", force: :cascade do |t|
-    t.integer "stardewvalley_id"
+    t.integer "stardewvalley_id", default: 1
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -76,12 +76,12 @@ ActiveRecord::Schema.define(version: 2021_10_04_220000) do
     t.string "requirements"
     t.string "rewards"
     t.boolean "completed"
-    t.integer "stardewvalley_id"
+    t.integer "stardewvalley_id", default: 1
     t.index ["stardewvalley_id"], name: "index_quests_on_stardewvalley_id"
   end
 
   create_table "stardewvalleys", force: :cascade do |t|
-    t.string "name"
+    t.string "name", default: "Stardew Valley"
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2021_10_04_220000) do
     t.integer "hearts"
     t.string "heartevents"
     t.boolean "marriage"
-    t.integer "stardewvalley_id"
+    t.integer "stardewvalley_id", default: 1
     t.index ["stardewvalley_id"], name: "index_villagers_on_stardewvalley_id"
   end
 

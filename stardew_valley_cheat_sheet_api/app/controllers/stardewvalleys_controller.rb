@@ -1,6 +1,6 @@
 class StardewvalleysController < ApplicationController
   before_action :set_stardewvalley, only: %i[ show edit update destroy ]
-
+  skip_before_action :authorized
   # GET /stardewvalleys or /stardewvalleys.json
   def index
     @stardewvalleys = Stardewvalley.all
@@ -64,6 +64,14 @@ class StardewvalleysController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def stardewvalley_params
-      params.require(:stardewvalley).permit(:name)
+      params.require(:stardewvalley).permit(
+        :name,
+        animals_attributes: [:name, :cost, :requirements, :produce, :sell_price],
+        buildings_attributes: [:name, :cost, :use],
+        crops_attributes: [:name, :season, :grow_time, :sell_price, :uses, :cost],
+        festivals_attributes: [:name, :date, :time_location, :description, :purchases],
+        quests_attributes: [:quest_type, :name, :description, :started_by,:requirements, :rewards, :completed],
+        villagers: [:name, :birthday, :gifts, :hearts, :heartevents, :marriage]
+        )
     end
 end

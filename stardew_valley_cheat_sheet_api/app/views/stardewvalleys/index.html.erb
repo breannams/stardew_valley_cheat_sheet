@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1>Stardewvalleys</h1>
 
@@ -6,6 +6,13 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Villagers </th>
+      <th> Animals</th>
+      <th>Buildings </th>
+    <th>Crops </th>
+    <th>festivals</th>
+    <th> quests</th>
+ 
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +21,33 @@
     <% @stardewvalleys.each do |stardewvalley| %>
       <tr>
         <td><%= stardewvalley.name %></td>
+        
+        <% stardewvalley.villagers.each do |villager|%>
+          <td><%= villager.name %> <td>
+          <%end%>
+          <% stardewvalley.animals.each do |animal| %>
+            <td><%=animal.name %> </td>
+            <%end%>
+
+            <% stardewvalley.buildings.each do |building| %>
+              <td><%= building.name%>  </td>
+              <%end%> 
+
+              <% stardewvalley.crops.each do |crop| %>
+                <td><%= crop.name%>  </td>
+                <%end%> 
+
+                <% stardewvalley.festivals.each do |festival| %>
+                  <td><%= festival.name%>  </td>
+                  <%end%> 
+
+                  <% stardewvalley.quests.each do |quest| %>
+                    <td><%=quest.name %>  </td>
+                    <%end%> 
+
+            <td></td>
+            <td></td>
+
         <td><%= link_to 'Show', stardewvalley %></td>
         <td><%= link_to 'Edit', edit_stardewvalley_path(stardewvalley) %></td>
         <td><%= link_to 'Destroy', stardewvalley, method: :delete, data: { confirm: 'Are you sure?' } %></td>

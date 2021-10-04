@@ -4,7 +4,7 @@ class CreateFarms < ActiveRecord::Migration[6.1]
       t.string :farm_name
       t.string :farm_type
       t.string :pet_type
-      t.belongs_to :stardewvalley
+      t.belongs_to :user
     end
   end
 end

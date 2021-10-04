@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(username: "bre", email: "irina.bearina@gmail.com", password: "testin", admin: true)
-Farm.create(farm_name: "Bre's Farm", farm_type: "Woodland", pet_type: "Cat", stardewvalley_id: 1)
+Farm.create(farm_name: "Bre's Farm", farm_type: "Woodland", pet_type: "Cat", user_id: 1)
 Villager.create(name: "Abigail", birthday: "Fall 13", gifts: ["Amethyst", "Banana Pudding", "Blackberry Cobbler", "Chocolate Cake", "Pufferfish", "Pumpkin", "Spicy Eel", "Gemstones"], hearts: 14, marriage: true, stardewvalley_id: 1 )
 Animal.create(name: "blue chicken", cost: 800, requirements: "Shanes 8 heart event, Coop", produce: "Egg, Large Egg", sell_price: 1040, stardewvalley_id: 1)
 Building.create(name: "Big Coop", cost: "400 Wood, 150 Stone, 10,000g", stardewvalley_id: 1)

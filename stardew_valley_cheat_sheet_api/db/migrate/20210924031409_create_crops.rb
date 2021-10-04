@@ -8,7 +8,7 @@ class CreateCrops < ActiveRecord::Migration[6.1]
       t.integer :sell_price
       t.string :uses
       t.string :cost
-      t.belongs_to :stardewvalley
+      t.belongs_to :stardewvalley, default: 1
   
     end
   end
