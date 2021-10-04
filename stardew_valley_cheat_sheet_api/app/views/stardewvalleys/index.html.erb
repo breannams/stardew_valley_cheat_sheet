@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Stardewvalleys</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stardewvalleys.each do |stardewvalley| %>
+      <tr>
+        <td><%= stardewvalley.name %></td>
+        <td><%= link_to 'Show', stardewvalley %></td>
+        <td><%= link_to 'Edit', edit_stardewvalley_path(stardewvalley) %></td>
+        <td><%= link_to 'Destroy', stardewvalley, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Stardewvalley', new_stardewvalley_path %>

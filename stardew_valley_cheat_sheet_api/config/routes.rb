@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :farms
+  resources :stardewvalleys
   resources :quests
   resources :festivals
   resources :animals

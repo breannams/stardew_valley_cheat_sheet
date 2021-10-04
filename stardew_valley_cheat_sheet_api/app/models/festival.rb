@@ -1,3 +1,3 @@
 class Festival < ApplicationRecord
-    # belongs_to :game
+     belongs_to :stardewvalley
 end

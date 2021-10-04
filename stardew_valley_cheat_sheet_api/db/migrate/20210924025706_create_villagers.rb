@@ -7,8 +7,8 @@ class CreateVillagers < ActiveRecord::Migration[6.1]
       t.integer :hearts
       t.string :heartevents
       t.boolean :marriage
-      t.string :img
-      t.belongs_to :game
+
+      t.belongs_to :stardewvalley
       
     end
   end
