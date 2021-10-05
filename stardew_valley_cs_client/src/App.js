@@ -13,7 +13,7 @@ export class App extends Component{
     <div className="App">
 
       <header className = "App-header">
-          <h1>Welcome to Stardew Valley! Please sign up or login bellow to start your farming adventure!</h1>
+          
          <LoginSignupcontainer />
      </header>
  
