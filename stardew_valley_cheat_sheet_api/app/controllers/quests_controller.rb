@@ -4,6 +4,7 @@ class QuestsController < ApplicationController
   # GET /quests or /quests.json
   def index
     @quests = Quest.all
+    render json: @quests
   end
 
   # GET /quests/1 or /quests/1.json

@@ -4,6 +4,7 @@ class FestivalsController < ApplicationController
   # GET /festivals or /festivals.json
   def index
     @festivals = Festival.all
+    render json: @festivals
   end
 
   # GET /festivals/1 or /festivals/1.json

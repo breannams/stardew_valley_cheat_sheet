@@ -1,10 +1,10 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Farms</h1>
 
 <table>
   <thead>
     <tr>
+    <th>User ID </th>
       <th>Farm name</th>
       <th>Farm type</th>
       <th>Pet type</th>
@@ -15,11 +15,12 @@
   <tbody>
     <% @farms.each do |farm| %>
       <tr>
+      <td><%= farm.user_id %></td>
         <td><%= farm.farm_name %></td>
         <td><%= farm.farm_type %></td>
         <td><%= farm.pet_type %></td>
-        <td><%= link_to 'Show', farm %></td>
-        <td><%= link_to 'Edit', edit_farm_path(farm) %></td>
+  
+       
         <td><%= link_to 'Destroy', farm, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -28,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Farm', new_farm_path %>
+

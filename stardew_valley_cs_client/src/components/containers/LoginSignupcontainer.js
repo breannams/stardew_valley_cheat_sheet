@@ -103,7 +103,7 @@ class LoginSignupcontainer extends Component {
                 <button className = "StartGame" onClick = {this.handleStartGame}>Yes! I'm ready for my new life! </button>
             <button className = "StartGame" onClick= {this.handleLogout}>No! I want to stay at Joja corp in my boring cubicle forever!(Logout)</button></div>
             : 
-             <div className = 'sign-up-log-in'><h1>Welcome to Stardew Valley! Please sign up or login bellow to start your farming adventure!</h1><h2>Sign Up: <SignUpForm signUp= {this.signUp} />   Login: <LoginForm logIn = {this.logIn}/></h2></div> }
+             <div className = 'sign-up-log-in'><h2>Sign Up: <SignUpForm signUp= {this.signUp} />   Login: <LoginForm logIn = {this.logIn}/></h2></div> }
            
            </header>
        

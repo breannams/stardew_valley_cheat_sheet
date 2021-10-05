@@ -7,7 +7,7 @@ class CreateFestivals < ActiveRecord::Migration[6.1]
       t.string :time_location
       t.string :description
       t.string :purchases
-      t.belongs_to :stardewvalley, default: 1
+      t.belongs_to :stardewvalley, default:1
 
     end
   end

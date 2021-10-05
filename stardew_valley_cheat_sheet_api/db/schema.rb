@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2021_10_04_220000) do
     t.string "produce"
     t.integer "sell_price"
     t.integer "stardewvalley_id", default: 1
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["stardewvalley_id"], name: "index_animals_on_stardewvalley_id"
   end
 
@@ -27,6 +29,8 @@ ActiveRecord::Schema.define(version: 2021_10_04_220000) do
     t.string "cost"
     t.string "use"
     t.integer "stardewvalley_id", default: 1
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["stardewvalley_id"], name: "index_buildings_on_stardewvalley_id"
   end
 
@@ -38,6 +42,8 @@ ActiveRecord::Schema.define(version: 2021_10_04_220000) do
     t.string "uses"
     t.string "cost"
     t.integer "stardewvalley_id", default: 1
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["stardewvalley_id"], name: "index_crops_on_stardewvalley_id"
   end
 
@@ -46,6 +52,8 @@ ActiveRecord::Schema.define(version: 2021_10_04_220000) do
     t.string "farm_type"
     t.string "pet_type"
     t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_farms_on_user_id"
   end
 
@@ -56,6 +64,8 @@ ActiveRecord::Schema.define(version: 2021_10_04_220000) do
     t.string "description"
     t.string "purchases"
     t.integer "stardewvalley_id", default: 1
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["stardewvalley_id"], name: "index_festivals_on_stardewvalley_id"
   end
 
@@ -77,11 +87,15 @@ ActiveRecord::Schema.define(version: 2021_10_04_220000) do
     t.string "rewards"
     t.boolean "completed"
     t.integer "stardewvalley_id", default: 1
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["stardewvalley_id"], name: "index_quests_on_stardewvalley_id"
   end
 
   create_table "stardewvalleys", force: :cascade do |t|
     t.string "name", default: "Stardew Valley"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,6 +113,8 @@ ActiveRecord::Schema.define(version: 2021_10_04_220000) do
     t.string "heartevents"
     t.boolean "marriage"
     t.integer "stardewvalley_id", default: 1
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["stardewvalley_id"], name: "index_villagers_on_stardewvalley_id"
   end
 

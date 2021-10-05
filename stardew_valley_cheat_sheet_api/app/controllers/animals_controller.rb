@@ -4,6 +4,7 @@ class AnimalsController < ApplicationController
   # GET /animals or /animals.json
   def index
     @animals = Animal.all
+    render json: @animals
   end
 
   # GET /animals/1 or /animals/1.json

@@ -1,9 +1,10 @@
 class FarmsController < ApplicationController
   before_action :set_farm, only: %i[ show edit update destroy ]
-
+skip_before_action :authorized
   # GET /farms or /farms.json
   def index
     @farms = Farm.all
+    render json: @farms
   end
 
   # GET /farms/1 or /farms/1.json

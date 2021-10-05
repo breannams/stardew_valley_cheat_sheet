@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-   skip_before_action :authorized, only: [:create, :index, :login]
+   skip_before_action :authorized, only: [:create, :index, :login, :show]
+   before_action :set_user, only: %i[ show ]
 
    def user_profile
     render json: @user
@@ -11,6 +12,11 @@ class UsersController < ApplicationController
     render json: user
 
    end
+
+   def show
+   end
+
+   
 
    def create
     @user = User.create(user_params)
@@ -33,7 +39,16 @@ class UsersController < ApplicationController
 
 
   private
+
+    def set_user
+      @user = User.find(params[:id])
+    end
+
   def user_params
-    params.require(:user).permit(:username, :email, :password, :admin, :id)
+    params.require(:user).permit(
+      :username, :email, :password, :admin, :id,
+    farm_attributes: [:farm_name, :farm_type, :pet_type]
+    
+    )
   end
 end
