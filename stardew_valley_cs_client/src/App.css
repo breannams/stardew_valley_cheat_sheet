@@ -32,3 +32,6 @@ form input {
 .alert-missing{
   color: red
 }
+.HIDE {
+  visibility: hidden
+}

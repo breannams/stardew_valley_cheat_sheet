@@ -26,10 +26,10 @@ skip_before_action :authorized
 
     respond_to do |format|
       if @farm.save
-        format.html { redirect_to @farm, notice: "Farm was successfully created." }
+        
         format.json { render :show, status: :created, location: @farm }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        
         format.json { render json: @farm.errors, status: :unprocessable_entity }
       end
     end
@@ -65,6 +65,6 @@ skip_before_action :authorized
 
     # Only allow a list of trusted parameters through.
     def farm_params
-      params.require(:farm).permit(:farm_name, :farm_type, :pet_type)
+      params.require(:farm).permit(:farm_name, :farm_type, :pet_type, :user_id)
     end
 end

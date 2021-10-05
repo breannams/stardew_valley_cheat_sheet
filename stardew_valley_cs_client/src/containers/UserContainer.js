@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import LoginForm from "../components/LoginForm"
 import SignUpForm from '../components/SignUpForm'
-import UserHomepage from '../components/UserHomepage'
+import FarmForm from '../components/FarmForm';
 
 class LoginSignupcontainer extends Component {
     state = {
@@ -91,6 +91,8 @@ class LoginSignupcontainer extends Component {
       }
 
       render (){
+       const userData = this.state.user
+    
         return (
           <div className="App">
       
@@ -107,7 +109,7 @@ class LoginSignupcontainer extends Component {
 
             : 
              <div className = 'sign-up-log-in'><h2>Sign Up: <SignUpForm signUp= {this.signUp} />   Login: <LoginForm logIn = {this.logIn}/></h2></div> }
-           
+          <FarmForm  userData = {userData}/>
            </header>
        
       
