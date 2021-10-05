@@ -6,6 +6,6 @@ export const fetchVillagers = () => {
         fetch('http://localhost:3000/villagers'
         )
         .then (resp => resp.json())
-        .then (villagers => console.log('fetchVillagers', villagers))
+        .then (villagers => dispatch({type: "FETCH_VILLAGERS", payload: villagers}))
     }
 }

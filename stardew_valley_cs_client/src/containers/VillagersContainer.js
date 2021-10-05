@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import {connect} from 'react-redux'
-import { fetchVillagers } from '../../actions/villagerActions'
+import { fetchVillagers } from '../actions/villagerActions'
 
 
 export class VillagersContainer extends Component{

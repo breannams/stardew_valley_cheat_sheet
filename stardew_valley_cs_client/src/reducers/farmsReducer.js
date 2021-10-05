@@ -1,6 +1,6 @@
 export const farmsReducer = (state = [], action) => {
     switch(action.type){
-        case 'FETCH_FARM':
+        case 'FETCH_FARMS':
             return action.payload
         default:
         return state

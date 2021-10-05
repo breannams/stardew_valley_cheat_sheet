@@ -1,7 +1,8 @@
 import {Component} from 'react'
-import LoginForm from '../LoginForm'
-import SignUpForm from '../SignUpForm'
-import UserHomepage from '../UserHomepage'
+import LoginForm from "../components/LoginForm"
+import SignUpForm from '../components/SignUpForm'
+import UserHomepage from '../components/UserHomepage'
+
 class LoginSignupcontainer extends Component {
     state = {
         user: {},
@@ -102,6 +103,8 @@ class LoginSignupcontainer extends Component {
                 <h2>Are you ready to start your new adventure??</h2>
                 <button className = "StartGame" onClick = {this.handleStartGame}>Yes! I'm ready for my new life! </button>
             <button className = "StartGame" onClick= {this.handleLogout}>No! I want to stay at Joja corp in my boring cubicle forever!(Logout)</button></div>
+
+
             : 
              <div className = 'sign-up-log-in'><h2>Sign Up: <SignUpForm signUp= {this.signUp} />   Login: <LoginForm logIn = {this.logIn}/></h2></div> }
            

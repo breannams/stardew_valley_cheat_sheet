@@ -2,11 +2,10 @@
 import './App.css';
 import React, {Component} from 'react'
 
-import LoginSignupcontainer from './components/containers/LoginSignupcontainer';
-import VillagersContainer from './components/containers/VillagersContainer'
-
+import LoginSignupcontainer from './containers/LoginSignupcontainer';
+import VillagersContainer from './containers/VillagersContainer'
+import BuildingsContainer from './containers/BuildingsContainer';
 export class App extends Component{
-
 
 
  render (){
@@ -16,6 +15,7 @@ export class App extends Component{
       <header className = "App-header">
          <LoginSignupcontainer />
          <VillagersContainer />
+          <BuildingsContainer />
      </header>
  
 

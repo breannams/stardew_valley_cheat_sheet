@@ -1,6 +1,6 @@
 class VillagersController < ApplicationController
   before_action :set_villager, only: %i[ show edit update destroy ]
-  # skip_before_action :authorized
+   skip_before_action :authorized
   # GET /villagers or /villagers.json
   def index
     @villagers = Villager.all
