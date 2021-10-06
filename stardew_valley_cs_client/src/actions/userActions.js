@@ -14,7 +14,7 @@ export const signUpAction = user => {
  
   .then(user => {
 
-    dispatch({type: "SIGNUP_USER", payload: user})})
+    dispatch({type: "SIGNIN_USER", payload: user})})
 
 
 

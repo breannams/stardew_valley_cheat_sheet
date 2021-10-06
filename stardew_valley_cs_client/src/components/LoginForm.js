@@ -17,7 +17,7 @@ class LoginForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        localStorage.clear()
+
         this.props.loginAction(this.state)
     }
 

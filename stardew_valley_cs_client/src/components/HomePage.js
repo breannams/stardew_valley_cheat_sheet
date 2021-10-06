@@ -46,13 +46,13 @@ class HomePage extends Component {
 
       render (){
        const userData = this.state.user
-  
+        
         return (
           <div className="App">
       
             <header className = "App-header">
      
-            {this.state.user.username 
+            {userData.username 
             ? 
            
             <div><h1>Welcome to your stardew valley cheat sheet {this.state.user.username}</h1>
@@ -60,8 +60,6 @@ class HomePage extends Component {
                 <h2>Are you ready to start your new adventure??</h2>
                 <button className = "StartGame" onClick = {this.handleStartGame}>Yes! I'm ready for my new life! </button>
             <button className = "StartGame" onClick= {this.handleLogout}>No! I want to stay at Joja corp in my boring cubicle forever!(Logout)</button></div>
-
-
             : 
              <div className = 'sign-up-log-in'><h2>Sign Up: <SignUpForm /> Login: <LoginForm/></h2></div> }
       
