@@ -1,37 +1,27 @@
 
-const initialState = {
-    all: [],
-}
-export const usersReducer = (state = initialState, action) => {
-    switch(action.type){
-        // case 'VALIDATE_USER':
 
-        //     return{
-        //         ...state,
-        //         user:action.payload
-        //     }
+export const usersReducer = (state = [], action) => {
+    switch(action.type){
                 
         case 'SIGNUP_USER':
-            
-            const oldUser = state.all.find(user => user.id === action.payload.user.id)
-            if (oldUser){
-
-                return { ... state, user: action.payload.user, token: action.payload.token}
-            }
-            else{ 
-           
+  
                 const user = JSON.stringify(action.payload.user)
                 const token = action.payload.jwt
   
                 localStorage.setItem("token", token )
                 localStorage.setItem("user", user)
-                return{...state, all: state.all.concat(action.payload)}
-            }
+                debugger
+                return[...state, action.payload]
+   
             
                  
         default:
+
         return state
     }
+
+
+
 
 }
 export default usersReducer
