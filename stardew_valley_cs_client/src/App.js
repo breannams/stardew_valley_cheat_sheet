@@ -2,7 +2,7 @@
 import './App.css';
 import React, {Component} from 'react'
 
-import UserContainer from './containers/UserContainer'
+import HomePage from './components/HomePage'
 
 
 export class App extends Component{
@@ -13,7 +13,7 @@ export class App extends Component{
     <div className="App">
 
       <header className = "App-header">
-        <UserContainer/>
+        <HomePage/>
  
     
      </header>

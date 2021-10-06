@@ -1,11 +1,12 @@
 import {Component} from 'react'
-import LoginForm from "../components/LoginForm"
-import SignUpForm from '../components/SignUpForm'
-import FarmForm from '../components/FarmForm';
+import LoginForm from "./LoginForm"
+import SignUpForm from './SignUpForm'
+
 
 import {connect} from 'react-redux'
 
-class Userscontainer extends Component {
+
+class HomePage extends Component {
     state = {
         user: {},
         error: ''
@@ -45,14 +46,15 @@ class Userscontainer extends Component {
 
       render (){
        const userData = this.state.user
-    
+  
         return (
           <div className="App">
       
             <header className = "App-header">
-      
+     
             {this.state.user.username 
             ? 
+           
             <div><h1>Welcome to your stardew valley cheat sheet {this.state.user.username}</h1>
                 <h2>Congratulations on your new start away from the corporate overlord Joja Corp! You have inherited your grandfather's old farm land in Stardew Valley. It is definitely a new change of pace from your office cubicle. But don't you worry! You'll meet many friendly and helpful villagers and learn the tricks of the trade along the way.</h2>
                 <h2>Are you ready to start your new adventure??</h2>
@@ -73,4 +75,4 @@ class Userscontainer extends Component {
 
 
 
-export default Userscontainer
+export default HomePage
