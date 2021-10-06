@@ -3,33 +3,35 @@ class ApplicationController < ActionController::API
     before_action :authorized
 
     
-      def decoded_token
-        if auth_header
+    def encode_token(payload)
+      JWT.encode(payload, 'my_secret')
+  end
+
+  def auth_header
+      request.headers['Authorization']
+  end
+  
+  def decoded_token
+      if auth_header
           token = auth_header.split(' ')[1]
           begin
-           @user_id = JWT.decode(token, Rails.applications.secrets.secret_key_base[0][0]["user_id"])
+              JWT.decode(token, 'my_secret', true, algorithm: 'HS256')
           rescue JWT::DecodeError
-            nil
+              nil
           end
-        end
       end
+      
+  end
 
-      def current_user
-        auth_header = request.headers["Authorization"]
-        if auth_header
-            user_token = auth_header.split(" ")[1]
-            begin
-                @user_id = JWT.decode(user_token, Rails.application.secrets.secret_key_base[0])[0]["user_id"]
-            rescue JWT::DecodeError 
-                nil
-            end
-        end
-        if(@user_id)
-            @user = User.find(@user_id)
-        else 
-            nil
-        end
-    end
+  def current_user
+      
+      if decoded_token
+              
+          user_id = decoded_token[0]['user_id']
+          @user = User.find_by(id: user_id)
+     
+      end
+  end
     
       def logged_in?
         !!current_user

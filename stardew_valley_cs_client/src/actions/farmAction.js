@@ -1,7 +1,7 @@
 
 export const addFarm = farm => {
     return (dispatch) => {
-   debugger
+
     fetch('http://localhost:3000/farms',{
         method: "POST",
         headers: {

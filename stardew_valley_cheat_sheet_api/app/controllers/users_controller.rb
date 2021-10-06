@@ -20,8 +20,12 @@ class UsersController < ApplicationController
 
    def create
     @user = User.create(user_params)
+    if @user.valid?
+      @payload = {user_id: @user.id}
+      @token = encode_token(@payload)
+       render json: {user: @user, jwt: @token},status: :created
  
-  render json: @user, status: :created
+    end
   end
 
   def login

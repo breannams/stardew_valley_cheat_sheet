@@ -1,6 +1,7 @@
 import { Component } from "react";
-
-export default class SignUpForm extends Component{
+import {signUpAction} from '../actions/userActions'
+import {connect} from 'react-redux'
+export class SignUpForm extends Component{
 
     state = {
         email: '',
@@ -17,8 +18,7 @@ export default class SignUpForm extends Component{
 
     handleSubmit = (event) => {
         event.preventDefault()
-     this.props.signUp(this.state) 
-    
+     this.props.signUpAction(this.state)
     }
     
     render(){
@@ -43,3 +43,4 @@ export default class SignUpForm extends Component{
     }
 
 }
+export default connect(null, {signUpAction})(SignUpForm)

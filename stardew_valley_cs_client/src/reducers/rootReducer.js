@@ -7,6 +7,7 @@ import cropsReducer from './buildingsReducer'
 import fesivalsReducer from './festivalsReducer'
 import questsReducer from './questsReducer'
 import villagersReducer from './villagersReducer'
+import usersReducer from './usersReducer'
 
 export  const rootReducer = combineReducers({
 
@@ -17,8 +18,8 @@ export  const rootReducer = combineReducers({
     farms: farmsReducer,
     festivals: fesivalsReducer,
     quests: questsReducer,
-    villagers: villagersReducer
-
+    villagers: villagersReducer,
+    users: usersReducer
 })
 
 

@@ -3,6 +3,8 @@ import LoginForm from "../components/LoginForm"
 import SignUpForm from '../components/SignUpForm'
 import FarmForm from '../components/FarmForm';
 
+import {connect} from 'react-redux'
+
 class LoginSignupcontainer extends Component {
     state = {
         user: {},
@@ -11,9 +13,11 @@ class LoginSignupcontainer extends Component {
       
   componentDidMount () {
     this.validation()
+
   }
       validation =() =>{
         let token = localStorage.getItem('token')
+      
         if (token){
         fetch('http://localhost:3000/profile', {
           headers: {
@@ -29,27 +33,6 @@ class LoginSignupcontainer extends Component {
           }
         })
       }
-      }
-
-
-      signUp = user => {
-        fetch('http://localhost:3000/users', {
-          method: "POST",
-          headers: {
-              "Accept": "application/json",
-              "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            user:{
-              username: user.username,
-              password: user.password,
-              email: user.email,
-              admin: user.admin
-            }
-          })
-        })
-        .then(response => response.json())
-        .then(user => this.setState({ user: user }) )
       }
 
       logIn = (user) => {
@@ -68,8 +51,11 @@ class LoginSignupcontainer extends Component {
         })
         .then(resp => resp.json())
         .then(resp => {
+         
+
           if (resp.token){
             localStorage.setItem('token', resp.token)
+            localStorage.setItem('user', JSON.stringify(resp.user))
             this.setState({
                 user: resp.user
                 })
@@ -78,7 +64,7 @@ class LoginSignupcontainer extends Component {
                 this.setState({
                     error: resp.error
                 })
-          }
+         }
         })
       }
     
@@ -108,7 +94,7 @@ class LoginSignupcontainer extends Component {
 
 
             : 
-             <div className = 'sign-up-log-in'><h2>Sign Up: <SignUpForm signUp= {this.signUp} />   Login: <LoginForm logIn = {this.logIn}/></h2></div> }
+             <div className = 'sign-up-log-in'><h2>Sign Up: <SignUpForm />   Login: <LoginForm logIn = {this.logIn}/></h2></div> }
           <FarmForm  userData = {userData}/>
            </header>
        
@@ -117,4 +103,8 @@ class LoginSignupcontainer extends Component {
         );
       }
 }
+
+
+
 export default LoginSignupcontainer
+// export default connect(null, {signUpAction})(LoginSignupcontainer)

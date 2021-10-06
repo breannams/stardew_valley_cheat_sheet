@@ -8,6 +8,9 @@ import BuildingsContainer from './containers/BuildingsContainer';
 
 export class App extends Component{
 
+componentDidMount(){
+  localStorage.getItem('user')
+}
 
  render (){
   return (
