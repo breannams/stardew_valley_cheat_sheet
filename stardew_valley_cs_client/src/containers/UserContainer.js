@@ -5,7 +5,7 @@ import FarmForm from '../components/FarmForm';
 
 import {connect} from 'react-redux'
 
-class LoginSignupcontainer extends Component {
+class Userscontainer extends Component {
     state = {
         user: {},
         error: ''
@@ -26,6 +26,7 @@ class LoginSignupcontainer extends Component {
         })
         .then (resp => resp.json())
         .then (user => {
+         
           if(user.id){
             this.setState({
               user: user
@@ -34,43 +35,9 @@ class LoginSignupcontainer extends Component {
         })
       }
       }
-
-      logIn = (user) => {
-        fetch("http://localhost:3000/login", {
-          method: "POST",
-          headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            user: {
-              username: user.username,
-              password: user.password
-            }
-          })
-        })
-        .then(resp => resp.json())
-        .then(resp => {
-         
-
-          if (resp.token){
-            localStorage.setItem('token', resp.token)
-            localStorage.setItem('user', JSON.stringify(resp.user))
-            this.setState({
-                user: resp.user
-                })
-            }
-            else {
-                this.setState({
-                    error: resp.error
-                })
-         }
-        })
-      }
-    
     
       handleLogout = () => {
-        localStorage.removeItem ("token")
+        localStorage.clear()
           this.setState({
             user: {}
           })
@@ -94,8 +61,8 @@ class LoginSignupcontainer extends Component {
 
 
             : 
-             <div className = 'sign-up-log-in'><h2>Sign Up: <SignUpForm />   Login: <LoginForm logIn = {this.logIn}/></h2></div> }
-          <FarmForm  userData = {userData}/>
+             <div className = 'sign-up-log-in'><h2>Sign Up: <SignUpForm /> Login: <LoginForm/></h2></div> }
+      
            </header>
        
       
@@ -106,5 +73,4 @@ class LoginSignupcontainer extends Component {
 
 
 
-export default LoginSignupcontainer
-// export default connect(null, {signUpAction})(LoginSignupcontainer)
+export default Userscontainer

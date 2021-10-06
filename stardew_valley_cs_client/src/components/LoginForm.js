@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import {loginAction} from '../actions/userActions'
 
 class LoginForm extends Component {
     state = {
@@ -17,7 +17,8 @@ class LoginForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.logIn(this.state)
+        localStorage.clear()
+        this.props.loginAction(this.state)
     }
 
 
@@ -27,12 +28,13 @@ class LoginForm extends Component {
                 <form onSubmit = {this.handleSubmit}>
                     <label>Username: </label>
                     <input type = 'text' id= "username" name= "username" value = {this.state.username} onChange = {this.handleChange}/>
+
                     <label>Password: </label>
                     <input type = "password" id= 'password' name = 'password' value = {this.state.password} onChange = {this.handleChange}/>
-                    {this.props.error? <p style ={{color: 'red'}}>{this.props.error}</p> : null}
+
                     <input type = 'submit' value = 'Sign In' />
                 </form>
             </div>
         )}
         }
-export default LoginForm
+export default connect (null, {loginAction})(LoginForm)
