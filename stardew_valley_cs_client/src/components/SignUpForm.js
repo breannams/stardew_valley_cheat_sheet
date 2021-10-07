@@ -1,13 +1,15 @@
 import { Component } from "react";
 import {signUpAction} from '../actions/userActions'
 import {connect} from 'react-redux'
+import { backButton } from "./HomePageNavs";
+
 export class SignUpForm extends Component{
 
     state = {
         email: '',
         username: '',
         password: '',
-        admin: ''
+        // admin: ''
     }
 
     handleChange = (event) => {
@@ -18,15 +20,24 @@ export class SignUpForm extends Component{
 
     handleSubmit = (event) => {
         event.preventDefault()
-     this.props.signUpAction(this.state)
+  
+        if (this.state.email && this.state.username && this.state.password){
+            this.props.signUpAction(this.state)
+
+            this.props.history.push('/home') 
+                }
+        else 
+                this.props.history.push('/signup')
+
     }
+    
     
     render(){
         return(
         <div>
-          
+           Sign Up:
         <form onSubmit = {this.handleSubmit}>
-   
+           
             <label>Email: </label>
             <input type = 'text' name= 'email' value = {this.state.email} onChange = {this.handleChange}/>
 
@@ -43,4 +54,6 @@ export class SignUpForm extends Component{
     }
 
 }
-export default connect(null, {signUpAction})(SignUpForm)
+
+
+export default connect(null, {signUpAction} )(SignUpForm)

@@ -1,7 +1,9 @@
 import {Component} from 'react'
-import { Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import {loginAction} from '../actions/userActions'
+
+
 
 class LoginForm extends Component {
     state = {
@@ -15,16 +17,23 @@ class LoginForm extends Component {
         })
     }
 
+
     handleSubmit = (event) => {
         event.preventDefault()
-
+        if (this.state.email && this.state.username && this.state.password){
         this.props.loginAction(this.state)
+        this.props.history.push('/home')
+        }
+        else
+        this.props.history.push('/login')
     }
 
-
+   
     render(){
         return(
             <div>
+    
+                Login:
                 <form onSubmit = {this.handleSubmit}>
                     <label>Username: </label>
                     <input type = 'text' id= "username" name= "username" value = {this.state.username} onChange = {this.handleChange}/>

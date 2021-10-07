@@ -31,6 +31,7 @@ class FarmForm extends Component{
     }
 
     static getDerivedStateFromProps(props,state){
+
         return {user_id: props.userData.id}
     }
 
@@ -77,5 +78,5 @@ class FarmForm extends Component{
     }
 }
 
-
+///map state to props to get user_id data.
 export default connect(null, { addFarm }) (FarmForm)
