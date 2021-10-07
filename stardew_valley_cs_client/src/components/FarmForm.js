@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {addFarm} from '../actions/farmAction'
 import {connect} from 'react-redux'
-{/* <FarmForm  userData = {userData}/> */}
+import {Switch, Route, withRouter} from 'react-router-dom'
 class FarmForm extends Component{
     constructor(props){
         super(props)
@@ -13,7 +13,7 @@ class FarmForm extends Component{
     }}
 
     handleChange = (event) => {
-     const test =   this.setState({
+      this.setState({
             [event.target.name]: event.target.value
         })
 
@@ -21,13 +21,12 @@ class FarmForm extends Component{
     
     handleSubmit = (event) => {
         event.preventDefault()
+        if (this.state.farm_name && this.state.farm_type && this.state.pet_type){
         this.props.addFarm(this.state)
-        this.setState({
-            farm_name: "",
-            farm_type: "",
-            pet_type: "",
-            user_id: ""
-        })
+        this.props.history.push('/games')}
+        else {
+            this.props.history.push('/farms')
+        }
     }
 
     static getDerivedStateFromProps(props,state){
@@ -36,7 +35,6 @@ class FarmForm extends Component{
     }
 
     render (){
- const user_id = this.props.userData.id
 
         return(
             <>
@@ -44,6 +42,7 @@ class FarmForm extends Component{
                 <label>Farm Name:</label>
                 <input type = "text" value = {this.state.farm_name} onChange={this.handleChange} name = "farm_name" />
 
+            <label> Farm Type: </label>
                 <select value = {this.state.farm_type} onChange = {this.handleChange} name = "farm_type">
                     <option value = "select"> Select... </option>
                     <option value = "standard">Standard Farm</option>
@@ -55,6 +54,7 @@ class FarmForm extends Component{
                     <option value = "Beach">Beach Farm</option>
                 </select>
 
+                <label>Pet Type: </label>
                 <select value = {this.state.pet_type} onChange = {this.handleChange} name = "pet_type">
                     <option value = "select">Select...</option>
                     <option value = "cat">Orange Cat</option>
@@ -67,16 +67,16 @@ class FarmForm extends Component{
                 <input type = "submit" value = "Create your Farm!"/>
             </form>
 
-            <div className = "Farm-Info">
+            {/* <div className = "Farm-Info">
                 <h3>Click on the following to learn more about each type of farm:</h3>
             ***add farm buttons here lol***
 
             ***add picture of pet types here***
-            </div>
+            </div> */}
             </>
         )
     }
 }
 
-///map state to props to get user_id data.
+
 export default connect(null, { addFarm }) (FarmForm)

@@ -1,7 +1,7 @@
 import { Component } from "react";
 import {signUpAction} from '../actions/userActions'
 import {connect} from 'react-redux'
-import { backButton } from "./HomePageNavs";
+
 
 export class SignUpForm extends Component{
 

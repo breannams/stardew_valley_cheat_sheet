@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-   skip_before_action :authorized, only: [:create, :index, :login, :show]
+   skip_before_action :authorized, only: [:create, :index, :login]
    before_action :set_user, only: %i[ show ]
 
    def home
@@ -13,11 +13,7 @@ class UsersController < ApplicationController
 
    end
 
-   def show
-   end
-
    
-
    def create
     @user = User.create(user_params)
     if @user.valid?

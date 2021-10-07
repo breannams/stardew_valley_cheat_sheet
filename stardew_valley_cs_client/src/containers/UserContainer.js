@@ -1,7 +1,8 @@
 import {Component} from 'react'
-import {startGameButton, logOutButton} from '../components/HomePageNavs'
+import {startGameButton, logOutButton} from '../components/Navs/HomePageNavs'
 
 class UserContainer extends Component {
+
   
       render (){
         return (
@@ -14,7 +15,7 @@ class UserContainer extends Component {
                 {startGameButton()}
               <br></br>
               <br></br>
-               {logOutButton()}
+                {logOutButton()}
             </div>
       
            </header>

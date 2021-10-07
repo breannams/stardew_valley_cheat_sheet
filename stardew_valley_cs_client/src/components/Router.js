@@ -12,6 +12,7 @@ import QuestsContainer from '../containers/QuestsContainer'
 import GamesContainer from "../containers/GamesContainer";
 import SignUpForm from "./SignUpForm";
 import LoginForm from "./LoginForm";
+import FarmContainer from '../containers/FarmContainer'
 
 const Router = () => {
     return(
@@ -29,6 +30,7 @@ const Router = () => {
             <Route path = "/festivals" component = {FestivalsContainer} />
             <Route path = "/quests" component = {QuestsContainer} />
             <Route path = "/games" component = {GamesContainer} />
+            <Route path = "/farms" component = {FarmContainer} />
             
         </Switch>
     )

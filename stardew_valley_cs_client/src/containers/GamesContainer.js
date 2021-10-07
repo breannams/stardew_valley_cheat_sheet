@@ -1,20 +1,15 @@
 import {Component} from 'react'
 import {connect} from 'react-redux'
-import FarmForm from '../components/FarmForm'
-export default class GamesContainer extends Component {
-    state = {
-        user: {},
-        error: ''
-      }
-      
+import GameNavBar from '../components/Navs/GameNav'
+
+export default class GamesContainer extends Component{
+
+
 
     render (){
-        const userData = this.state.user
-        debugger
-        return(
+        return (
             <div>
-                Make your new farm!
-           
+                {GameNavBar()}
             </div>
         )
     }

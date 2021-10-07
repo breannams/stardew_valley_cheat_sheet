@@ -1,6 +1,7 @@
 import { Component } from "react"
-import { LoginButton } from "./HomePageNavs"
-import { SignupButton } from "./HomePageNavs"
+import { LoginButton, SignupButton } from "./Navs/HomePageNavs"
+
+
 export default class HomePage extends Component {
 
 render (){
