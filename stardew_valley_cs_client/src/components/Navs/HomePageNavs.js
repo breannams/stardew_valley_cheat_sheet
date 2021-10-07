@@ -13,7 +13,7 @@ export const startGameButton = () => {
     return (
       <div>
         <NavLink
-        to = "/games"
+        to = "/farms"
         exact
         className = "btn"
         style = {link}

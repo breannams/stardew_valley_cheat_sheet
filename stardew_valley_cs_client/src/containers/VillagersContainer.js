@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import {connect} from 'react-redux'
 import { fetchVillagers } from '../actions/villagerActions'
-
+import GameNavBar from '../components/Navs/GameNav'
 
 export class VillagersContainer extends Component{
 
@@ -11,7 +11,9 @@ componentDidMount(){
 
 render(){
     return(
-        <div>Villager Container</div>
+        <div>Villager Container
+              {GameNavBar()}
+        </div>
     )
 }
 }

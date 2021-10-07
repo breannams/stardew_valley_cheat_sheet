@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {addFarm} from '../actions/farmAction'
+import {addFarm} from '../actions/farmActions'
 import {connect} from 'react-redux'
 import {Switch, Route, withRouter} from 'react-router-dom'
 class FarmForm extends Component{
