@@ -2,7 +2,7 @@ class UsersController < ApplicationController
    skip_before_action :authorized, only: [:create, :index, :login, :show]
    before_action :set_user, only: %i[ show ]
 
-   def user_profile
+   def home
     render json: @user
    end
 
