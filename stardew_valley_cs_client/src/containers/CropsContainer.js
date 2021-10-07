@@ -1,7 +1,14 @@
 import {Component} from 'react'
 import {connect} from 'react-redux'
 import GameNavBar from '../components/Navs/GameNav'
-export default class CropsContainer extends Component {
+import {fetchCrops} from '../actions/cropsActions'
+
+export class CropsContainer extends Component {
+
+    componentDidMount(){
+        this.props.fetchCrops()
+    }
+
     render (){
         return(
             <div>Crops Container
@@ -10,3 +17,5 @@ export default class CropsContainer extends Component {
         )
     }
 }
+
+export default connect(null, {fetchCrops})(CropsContainer)

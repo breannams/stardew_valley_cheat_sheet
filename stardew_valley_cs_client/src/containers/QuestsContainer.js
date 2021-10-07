@@ -1,7 +1,14 @@
 import {Component} from 'react'
 import {connect} from 'react-redux'
 import GameNavBar from '../components/Navs/GameNav'
-export default class QuestsContainer extends Component{
+import {fetchQuests} from '../actions/questsActions'
+
+
+export class QuestsContainer extends Component{
+
+    componentDidMount(){
+        this.props.fetchQuests()
+    }
 
     render (){
         return (
@@ -11,3 +18,8 @@ export default class QuestsContainer extends Component{
         )
     }
 }
+
+
+
+
+export default connect(null, {fetchQuests})(QuestsContainer)

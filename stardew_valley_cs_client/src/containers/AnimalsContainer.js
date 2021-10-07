@@ -1,8 +1,13 @@
 import {Component} from 'react'
 import {connect} from 'react-redux'
 import GameNavBar from '../components/Navs/GameNav'
+import {fetchAnimals} from '../actions/animalActions'
 
-export default class AnimalsContainer extends Component{
+export class AnimalsContainer extends Component{
+    
+    componentDidMount(){
+        this.props.fetchAnimals()
+    }
 
     render (){
         return (
@@ -13,3 +18,5 @@ export default class AnimalsContainer extends Component{
         )
     }
 }
+
+export default connect(null, {fetchAnimals})(AnimalsContainer)

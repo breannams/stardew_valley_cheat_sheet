@@ -1,8 +1,12 @@
 import {Component} from 'react'
 import {connect} from 'react-redux'
 import GameNavBar from '../components/Navs/GameNav'
-export default class FestivalsContainer extends Component{
+import {fetchFestivals} from '../actions/festivalActions'
 
+export  class FestivalsContainer extends Component{
+    componentDidMount(){
+        this.props.fetchFestivals()
+    }
     render (){
         return (
             <div>FestivalsContainer
@@ -11,3 +15,5 @@ export default class FestivalsContainer extends Component{
         )
     }
 }
+
+export default connect(null, {fetchFestivals})(FestivalsContainer)

@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import {connect} from 'react-redux'
-import { fetchVillagers } from '../actions/villagerActions'
+import  {fetchVillagers}  from '../actions/villagerActions'
 import GameNavBar from '../components/Navs/GameNav'
 
 export class VillagersContainer extends Component{
