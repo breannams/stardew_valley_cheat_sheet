@@ -1,5 +1,5 @@
 import { Component } from "react";
-import {signUpAction} from '../actions/userActions'
+import {signUpAction} from '../../actions/userActions'
 import {connect} from 'react-redux'
 
 

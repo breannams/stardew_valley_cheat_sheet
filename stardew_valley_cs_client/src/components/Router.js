@@ -10,8 +10,8 @@ import CropsContainer from '../containers/CropsContainer'
 import FestivalsContainer from '../containers/FestivalsContainer'
 import QuestsContainer from '../containers/QuestsContainer'
 import GamesContainer from "../containers/GamesContainer";
-import SignUpForm from "./SignUpForm";
-import LoginForm from "./LoginForm";
+import SignUpForm from "./Forms/SignUpForm";
+import LoginForm from "./Forms/LoginForm";
 import FarmContainer from '../containers/FarmContainer'
 
 const Router = () => {

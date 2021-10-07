@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import FarmForm from '../components/FarmForm'
+import FarmForm from '../components/Forms/FarmForm'
 
 export default class GamesContainer extends Component {
     state = {

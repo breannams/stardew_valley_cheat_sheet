@@ -1,7 +1,7 @@
 import {Component} from 'react'
 
 import { connect } from 'react-redux';
-import {loginAction} from '../actions/userActions'
+import {loginAction} from '../../actions/userActions'
 
 
 
