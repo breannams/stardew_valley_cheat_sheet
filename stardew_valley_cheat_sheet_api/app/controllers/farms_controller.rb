@@ -1,38 +1,35 @@
 class FarmsController < ApplicationController
-  before_action :set_farm, only: %i[ show edit update destroy ]
+#   before_action :set_farm, only: %i[ show edit update destroy ]
 skip_before_action :authorized
   # GET /farms or /farms.json
   def index
-    @farms = Farm.all
-    render json: @farms
+    farms = Farm.all
+    render json: farms
   end
 
   # GET /farms/1 or /farms/1.json
-  def show
-  end
+  # def show
+  # end
 
   # GET /farms/new
   def new
-    @farm = Farm.new
+    farm = Farm.new
   end
 
-  # GET /farms/1/edit
-  def edit
-  end
+  # # GET /farms/1/edit
+  # def edit
+  # end
 
   # POST /farms or /farms.json
   def create
-    @farm = Farm.new(farm_params)
+    farm = Farm.new(farm_params)
 
-    respond_to do |format|
-      if @farm.save
-        
-        format.json { render :show, status: :created, location: @farm }
-      else
-        
-        format.json { render json: @farm.errors, status: :unprocessable_entity }
+      if farm.save
+        json { render :show, status: :created, location: farm }
+      else 
+      json { render json: farm.errors, status: :unprocessable_entity }
       end
-    end
+    
   end
 
   # PATCH/PUT /farms/1 or /farms/1.json

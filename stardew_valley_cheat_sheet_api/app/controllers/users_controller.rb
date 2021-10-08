@@ -1,9 +1,8 @@
 class UsersController < ApplicationController
    skip_before_action :authorized
-   before_action :set_user, only: %i[ show ]
 
    def home
-    render json: @user
+    render json: user
    end
 
 
@@ -15,38 +14,43 @@ class UsersController < ApplicationController
 
    
    def create
-    @user = User.create(user_params)
-    if @user.valid?
-      @payload = {user_id: @user.id}
-      @token = encode_token(@payload)
-       render json: {user: @user, jwt: @token},status: :created
+    user = User.create(user_params)
+    if user.valid?
+      payload = {user_id: user.id}
+      token = encode_token(payload)
+       render json: {user: user, jwt: token},status: :created
+    else
+      render json: {errors: user.errors.full_messages}
  
     end
   end
 
   def login
-    @user = User.find_by(username: params[:user][:username])
+    user = User.find_by(username: params[:user][:username])
 
-    if @user && @user.authenticate(params[:user][:password])
+    if user && user.authenticate(params[:user][:password])
       
-       @payload = {user_id: @user.id}
-      @token = encode_token(@payload)
+       payload = {user_id: user.id}
+      token = encode_token(payload)
      
-      render json: {user: @user, jwt: @token}
+      render json: {user: user, jwt: token}
     else
       render json: {error: "Invalid username or password"}
     end
-  #  byebug
+  end
+
+  def auto_login
+    if current_user
+      render json: current_user
+    else
+      render json: {errors: "No User Logged In."}
+    end
   end
 
 
   private
 
-    def set_user
-      @user = User.find(params[:id])
+    def user_params
+      params.require(:user).permit( :username, :email, :password, :admin, :id )
     end
-
-  def user_params
-    params.require(:user).permit( :username, :email, :password, :admin, :id )
-  end
 end
