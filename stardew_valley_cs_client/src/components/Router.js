@@ -3,6 +3,7 @@ import {Switch, Route, withRouter} from 'react-router-dom'
 
 import UserContainer from "../containers/UserContainer";
 import HomePage from "./HomePage";
+import AboutPage from "./Aboutpage"
 import VillagersContainer from '../containers/VillagersContainer'
 import BuildingsContainer from '../containers/BuildingsContainer'
 import AnimalsContainer from '../containers/AnimalsContainer'
@@ -19,6 +20,7 @@ const Router = () => {
         <Switch>
 
             <Route exact path = '/' component = {HomePage} />
+            <Route exact path = "/about" component = {AboutPage} />
             <Route exact path = '/home' component = {UserContainer} />
             <Route exact path = "/signup" component = {SignUpForm} />
             <Route exact path = '/login' component = {LoginForm} />

@@ -11,23 +11,27 @@ const link = {
 
   const handleLogout = () => {
     localStorage.clear()
-   this.props.history.push('/')
    }
   
-    export const logOutButton = () => {
+    export const NavBar = () => {
+      let user = localStorage.getItem("user")
         return (
           <div>
-          <NavLink
-          to = "/"
-          exact
-          style = {link}
-          activeStyle = {
-            {background : "darkgray"}
-          }
-          onClick = {handleLogout}
-      >
-             Logout
-      </NavLink>
+            {user ? 
+            <div>
+            <NavLink to = "/" exact style = {link} onClick = {handleLogout}> Logout </NavLink> 
+            <NavLink to = "/about" exact style = {link}>About</NavLink>
+            <NavLink to = "/games" exact style = {link}>Home</NavLink>
+            <br></br>
+            <br></br>
+            </div> 
+            
+            :
+               <div>
+               <NavLink to = "/about" exact style = {link}>About</NavLink>
+               </div>
+           }
+       
         </div>
         )
     }
