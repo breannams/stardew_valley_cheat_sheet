@@ -15,6 +15,7 @@ const link = {
   
     export const NavBar = () => {
       let user = localStorage.getItem("user")
+      debugger
         return (
           <div>
             {user ? 
@@ -29,6 +30,9 @@ const link = {
             :
                <div>
                <NavLink to = "/about" exact style = {link}>About</NavLink>
+               <NavLink to = "/" exact style = {link}>Home </NavLink>  
+              <br></br>
+              <br></br>
                </div>
            }
        
