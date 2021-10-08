@@ -10,12 +10,29 @@ export class AnimalsContainer extends Component{
     }
 
     render (){
+       
         return (
             <>
+            <br></br>
                   {GameNavBar()}
                 <div>  
                     <h1>The animals of Stardew Valley:</h1>
-                      
+                    
+                      {
+                          this.props.animals.map(animal => 
+                          <div>
+                            <h2 key = {animal.id}><u> {animal.name}</u></h2> 
+                             <h4>
+                            cost: {animal.cost} <br></br>
+                            requirements: {animal.requirements} <br></br>
+                            produces: {animal.produce}<br></br>
+                            5 heart sell price: {animal.sell_price}<br></br>
+                               </h4> 
+                              
+                          
+                            </div>
+                          )
+                      }
                       
                 </div>
                 
@@ -26,4 +43,10 @@ export class AnimalsContainer extends Component{
     }
 }
 
-export default connect(null, {fetchAnimals})(AnimalsContainer)
+
+const mapStateToProps = (state) => {
+
+    return{animals: state.animals}
+}
+
+export default connect(mapStateToProps, {fetchAnimals})(AnimalsContainer)
