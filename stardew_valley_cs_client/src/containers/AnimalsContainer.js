@@ -11,9 +11,16 @@ export class AnimalsContainer extends Component{
 
     render (){
         return (
-            <div>Animals Contianer
+            <>
                   {GameNavBar()}
-            </div>
+                <div>  
+                    <h1>The animals of Stardew Valley:</h1>
+                      
+                      
+                </div>
+                
+
+            </>
             
         )
     }

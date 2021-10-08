@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import FarmForm from '../components/Forms/FarmForm'
 
-export default class GamesContainer extends Component {
+export default class FarmContainer extends Component {
 
     render (){
         const userData = JSON.parse(localStorage.getItem("user"))

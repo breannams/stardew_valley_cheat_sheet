@@ -4,20 +4,20 @@ import {connect} from 'react-redux'
 import {fetchUserFarm} from '../actions/farmActions'
 
 class UserContainer extends Component  {
-state = {
-  farm: ""
-}
+    state = {
+      farms: ""
+    }
+
+
   componentDidMount(){
 
     setTimeout(
     this.props.fetchUserFarm(), 100) 
       
-    if (this.props.farms != 0){
-     
+    if (this.props.farms != 0 && this.props.farms.farm !=0){
     setTimeout( () => {  
-       if (this.props.farms.farm.length > 0){
       this.props.history.push('/games')
-    }}, 100
+    }, 100
     )
   }
   }

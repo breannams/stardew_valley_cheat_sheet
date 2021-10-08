@@ -11,7 +11,7 @@ const link = {
 
   const handleLogout = () => {
     localStorage.clear()
-   
+   this.props.history.push('/')
    }
   
     export const logOutButton = () => {

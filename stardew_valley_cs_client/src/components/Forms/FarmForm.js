@@ -3,14 +3,12 @@ import {addFarm} from '../../actions/farmActions'
 import {connect} from 'react-redux'
 import {Switch, Route, withRouter} from 'react-router-dom'
 class FarmForm extends Component{
-    constructor(props){
-        super(props)
-    this.state = {
+   state = {
         farm_name: "",
         farm_type: "",
         pet_type: "",
         user_id: ""
-    }}
+    }
 
     handleChange = (event) => {
       this.setState({
