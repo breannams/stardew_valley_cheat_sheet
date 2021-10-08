@@ -23,13 +23,12 @@ export class AnimalsContainer extends Component{
                           <div>
                             <h2 key = {animal.id}><u> {animal.name}</u></h2> 
                              <h4>
-                            cost: {animal.cost} <br></br>
-                            requirements: {animal.requirements} <br></br>
-                            produces: {animal.produce}<br></br>
-                            5 heart sell price: {animal.sell_price}<br></br>
-                               </h4> 
-                              
-                          
+                                cost: {animal.cost} <br></br>
+                                requirements: {animal.requirements} <br></br>
+                                produces: {animal.produce}<br></br>
+                                5 heart sell price: {animal.sell_price}<br></br>
+                             </h4> 
+                            
                             </div>
                           )
                       }

@@ -11,10 +11,28 @@ export class BuildingsContainer extends Component{
     }
     render(){
         return(
-            <div>BuildingsContainer
+            <>
+            <br></br>
                   {GameNavBar()}
-            </div>
+                  <h1>Buildings you can Purchase:</h1>
+                  {
+                      this.props.buildings.map(building =>
+                        <div>
+                            <h2 key = {building.id}><u>{building.name}</u></h2>
+                            <h4>
+                                cost: {building.cost}<br></br>
+                                Uses: {building.use}
+                            </h4>
+                            
+                        </div>
+                        )
+                  }
+            </>
         )
     }
 }
-export default connect(null, {fetchBuildings})(BuildingsContainer)
+
+const mapStateToProps = (state) => {
+    return{buildings: state.buildings}
+}
+export default connect(mapStateToProps, {fetchBuildings})(BuildingsContainer)
