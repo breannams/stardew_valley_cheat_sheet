@@ -16,7 +16,7 @@ export class AnimalsContainer extends Component{
             <br></br>
                   {GameNavBar()}
                 <div>  
-                    <h1>The animals of Stardew Valley:</h1>
+                    <h1>Animals:</h1>
                     
                       {
                           this.props.animals.map(animal => 

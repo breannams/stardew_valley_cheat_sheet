@@ -14,11 +14,14 @@ export class BuildingsContainer extends Component{
             <>
             <br></br>
                   {GameNavBar()}
-                  <h1>Buildings you can Purchase:</h1>
+                  <div>
+                  <h1>Buildings:</h1>
                   {
                       this.props.buildings.map(building =>
                         <div>
+                            <ul>
                             <h2 key = {building.id}><u>{building.name}</u></h2>
+                            </ul>
                             <h4>
                                 cost: {building.cost}<br></br>
                                 Uses: {building.use}
@@ -27,6 +30,7 @@ export class BuildingsContainer extends Component{
                         </div>
                         )
                   }
+                  </div>
             </>
         )
     }

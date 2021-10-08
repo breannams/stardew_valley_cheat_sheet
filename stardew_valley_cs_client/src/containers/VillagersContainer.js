@@ -11,12 +11,31 @@ componentDidMount(){
 
 render(){
     return(
-        <div>Villager Container
+        <>
+        <br></br>
               {GameNavBar()}
-        </div>
+              <div>
+                  <h1>Villagers:</h1>
+                  {
+                      this.props.villagers.map(villager =>
+                        <div key = {villager.id}>
+                            <h2><u>{villager.name}</u></h2>
+                            <h4>
+                                birthday: {villager.birthday}<br></br>
+                                best gifts: {villager.gifts}<br></br>
+                                heart events at {villager.heartevents} heart levels <br></br>
+                                available to marry? {villager.marriage === true ? "Yes" : "No"}
+                            </h4>
+                        </div>
+                        )
+                  }
+              </div>
+        </>
     )
 }
 }
+const mapStatetoProps = (state) => {
+    return{villagers: state.villagers}
+}
 
-
-export default connect(null, {fetchVillagers})(VillagersContainer)
+export default connect(mapStatetoProps, {fetchVillagers})(VillagersContainer)
