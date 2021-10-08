@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :villagers
   resources :games
   
-  resources :users
+  resources :users 
   post '/login', to: 'users#login'
   get '/home', to: "users#home"
 

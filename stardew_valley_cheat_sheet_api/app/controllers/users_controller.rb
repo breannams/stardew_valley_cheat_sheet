@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-   skip_before_action :authorized, only: [:create, :index, :login]
+   skip_before_action :authorized
    before_action :set_user, only: %i[ show ]
 
    def home
@@ -47,10 +47,6 @@ class UsersController < ApplicationController
     end
 
   def user_params
-    params.require(:user).permit(
-      :username, :email, :password, :admin, :id,
-    farm_attributes: [:farm_name, :farm_type, :pet_type]
-    
-    )
+    params.require(:user).permit( :username, :email, :password, :admin, :id )
   end
 end

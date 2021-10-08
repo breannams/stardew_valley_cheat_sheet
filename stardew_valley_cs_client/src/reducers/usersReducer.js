@@ -7,14 +7,10 @@ export const usersReducer = (state = [], action) => {
 
                 const user = JSON.stringify(action.payload.user)
                 const token = action.payload.jwt
-  
                 localStorage.setItem("token", token )
                 localStorage.setItem("user", user)
-
-                return[...state, action.payload]
-
-        case "LOGOUT_USER":
-     
+       
+                return[...state, action.payload]     
          
                  
         default:

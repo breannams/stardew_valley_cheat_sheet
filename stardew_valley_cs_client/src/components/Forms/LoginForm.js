@@ -20,6 +20,7 @@ class LoginForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        
         if (this.state.username && this.state.password){
         this.props.loginAction(this.state)
         this.props.history.push('/home')

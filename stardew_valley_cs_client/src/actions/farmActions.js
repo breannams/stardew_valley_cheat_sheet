@@ -15,18 +15,21 @@ export const addFarm = farm => {
     .then(resp => resp.json())
     .then(farmData => dispatch({type: 'ADD_FARM', payload: farmData}))
     }
-}
+  }
 
 
-
-
-
-export const fetchFarms = () => {
- 
+  export const fetchUserFarm = () => {
+   
     return (dispatch) => {
-        fetch('http://localhost:3000/farms'
+
+    
+      fetch (`http://localhost:3000/farms`)
+      .then(resp => resp.json())
+      .then (farms => 
+      
+        dispatch({type: "FETCH_USER_FARM", payload: farms})
         )
-        .then (resp => resp.json())
-        .then (farms => dispatch({type: "FETCH_FARMS", payload: farms}))
+      
+  
     }
-}
+  }
