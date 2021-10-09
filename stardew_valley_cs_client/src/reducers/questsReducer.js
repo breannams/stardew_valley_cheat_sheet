@@ -1,7 +1,7 @@
 export const questsReducer = (state = [], action) => {
     switch(action.type){
         case 'FETCH_QUESTS':
-            return action.payload
+            return [ ...state, action.payload ]
         default:
         return state
     }

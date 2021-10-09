@@ -1,7 +1,7 @@
 export const animalsReducer = (state = [], action) => {
     switch(action.type){
         case 'FETCH_ANIMALS':
-            return action.payload
+            return [ ...state ,action.payload]
         default:
         return state
     }

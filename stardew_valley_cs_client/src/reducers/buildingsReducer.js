@@ -1,7 +1,7 @@
 export const buildingsReducer = (state = [], action) => {
     switch(action.type){
         case 'FETCH_BUILDINGS':
-            return action.payload
+            return [ ...state , action.payload]
         default:
         return state
     }
