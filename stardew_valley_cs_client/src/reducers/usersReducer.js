@@ -11,7 +11,9 @@ export const usersReducer = (state = [], action) => {
                 localStorage.setItem("user", user)
        
                 return[...state, action.payload]     
-         
+        
+        case "CHECK_LOGIN_STATUS":
+            return [...state, action.payload]
                  
         default:
 

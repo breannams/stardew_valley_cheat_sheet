@@ -41,3 +41,20 @@ return(dispatch) => {
 }}
 
 
+export const checkLoginStatus =() => {
+  return (dispatch) => {
+  let token = localStorage.getItem('token')
+      
+  if (token){
+  fetch('http://localhost:3000/auto_login', {
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  })
+  .then (resp => resp.json())
+  .then (user => {
+  dispatch({type: "CHECK_LOGIN_STATUS", payload:user})
+   
+  })
+
+}}}

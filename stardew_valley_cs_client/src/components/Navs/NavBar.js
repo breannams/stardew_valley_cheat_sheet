@@ -1,24 +1,25 @@
 import {NavLink} from 'react-router-dom'
-const link = {
-    width: "100px",
-    padding: "13px",
-    margin: "0 6px 6px",
-    background: "grey",
-    textDecoration: "none",
-    color: "white",
-  };
+import { Component } from 'react';
 
+   export class NavBar extends Component () {
+      // link = {
+      //   width: "100px",
+      //   padding: "13px",
+      //   margin: "0 6px 6px",
+      //   background: "grey",
+      //   textDecoration: "none",
+      //   color: "white",
+      // };
+    
+      // handleLogout = () => {
+      //   localStorage.clear()
+      //  }
 
-  const handleLogout = () => {
-    localStorage.clear()
-   }
-  
-    export const NavBar = () => {
-      let user = localStorage.getItem("user")
-      debugger
+      render(){
+      
         return (
           <div>
-            {user ? 
+            {/* {user ? 
             <div>
             <NavLink to = "/" exact style = {link} onClick = {handleLogout}> Logout </NavLink> 
             <NavLink to = "/about" exact style = {link}>About</NavLink>
@@ -35,7 +36,10 @@ const link = {
               <br></br>
                </div>
            }
-       
+        */}
         </div>
         )
+      }
     }
+
+    export default NavBar

@@ -1,40 +1,32 @@
 import {Component} from 'react'
 import {connect} from 'react-redux'
-import GameNavBar from '../components/Navs/GameNav'
+
 import {fetchUserFarm} from '../actions/farmActions'
-
+import GamesPage from '../components/Pages/Gamespage'
+import FarmForm from '../components/Forms/FarmForm'
 export  class GamesContainer extends Component{
-    state = {
-        farms: ""
-    }
-
+ 
     componentDidMount(){
-        setTimeout(
-            this.props.fetchUserFarm(), 100) 
-          
+            this.props.fetchUserFarm() 
       }
 
     render (){
         let farm = this.props.farms.farm 
-  
+        const userData = JSON.parse(localStorage.getItem("user"))
+        const history = this.props.history
         return (
             <div>
-              {this.props.farms != 0 ? 
-              <div>
-       <h1>Welcome to {farm.map(userfarm => userfarm.farm_name)}! Congratulations on finally moving in. Click on the bellow options to learn more about Stardew Valley and it's inhabitants </h1>
-      { GameNavBar() }
-       </div>
-       :
-       GameNavBar()
-        }
-            
+                {farm?
+             < GamesPage farm = {farm}/>
+            : 
+            <FarmForm userData = {userData} history = {history}/>
+            }
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => {
-
     return{
   farms: state.farms
 }
