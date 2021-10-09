@@ -17,7 +17,6 @@ const link = {
        
         <NavLink to= "/animals" exact style = {link}>Animals</NavLink>
         <NavLink to = "/buildings" exact style = {link}>Buildings</NavLink>
-        <NavLink to = "/crops" exact style = {link}>Crops</NavLink>
         <NavLink to = "/festivals" exact style = {link}>Festivals</NavLink>
         <NavLink to = "quests" exact style = {link}>Quests</NavLink>
         <NavLink to = "villagers" exact style = {link}>Villagers</NavLink>

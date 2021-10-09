@@ -6,9 +6,10 @@ export class UserHomePage extends Component {
 
     componentDidMount(){
         if (this.props.farm){
+        if (this.props.farm.farm.length > 0 ){
             history.push('/games')
-        }
-
+        }}
+        debugger
     }
 
     render (){

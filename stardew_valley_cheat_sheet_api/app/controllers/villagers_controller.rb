@@ -29,7 +29,7 @@ class VillagersController < ApplicationController
       else
         json { render json: villager.errors, status: :unprocessable_entity }
       end
-    end
+    
   end
 
   # # PATCH/PUT /villagers/1 or /villagers/1.json
