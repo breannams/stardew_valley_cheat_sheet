@@ -8,7 +8,7 @@ class FarmForm extends Component{
         farm_type: "",
         pet_type: "",
         user_id: ""
-    }
+   }
 
     handleChange = (event) => {
       this.setState({
@@ -27,10 +27,22 @@ class FarmForm extends Component{
         }
     }
 
- 
+    static getDerivedStateFromProps(props,state){
+        let user = JSON.parse(localStorage.getItem("user"))
+        if (user){
+            if (user.id !== state.user_id)
+            return {
+                user_id: user.id
+            } 
+            return null
+        }
+
+       }
+       
+    
 
     render (){
-
+debugger
         return(
             <>
             <form onSubmit = {this.handleSubmit}>

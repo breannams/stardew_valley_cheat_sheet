@@ -25,6 +25,7 @@ export  class GamesContainer extends Component{
 }
 
 const mapStateToProps = (state) => {
+
     return{
   farms: state.farms
 }

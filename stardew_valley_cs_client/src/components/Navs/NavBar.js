@@ -33,7 +33,7 @@ export class NavBar extends Component {
             <div>
               <NavLink to = "/" exact style = {link} onClick = {this.handleLogout}> Logout </NavLink> 
               <NavLink to = "/about" exact style = {link}>About</NavLink>
-              <NavLink to = "/games" exact style = {link}>Home</NavLink>
+              <NavLink to = "/" exact style = {link}>Home</NavLink>
               <br></br>
               <br></br>
             </div> 

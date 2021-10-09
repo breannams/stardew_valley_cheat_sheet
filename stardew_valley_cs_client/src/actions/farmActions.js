@@ -13,7 +13,9 @@ export const addFarm = farm => {
     })
 
     .then(resp => resp.json())
-    .then(farmData => dispatch({type: 'ADD_FARM', payload: farmData}))
+    .then(farmData => 
+      
+      dispatch({type: 'ADD_FARM', payload: farmData}))
     }
   }
 

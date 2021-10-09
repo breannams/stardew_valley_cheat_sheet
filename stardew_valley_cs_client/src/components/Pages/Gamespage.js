@@ -5,7 +5,7 @@ export default class GamesPage extends Component {
 
     render(){
         let farm = this.props.farm
-        let user = this.props.userData
+        let userData = this.props.userData
         return(
             <>
                 {  farm && farm.length > 0 ?
@@ -15,16 +15,16 @@ export default class GamesPage extends Component {
                     </div>
                 :
                     <div>
-                        { user ?
+                        { userData ?
                         <div>
-                            <h1>Welcome to the Valley, {user.username}. The first step on your new journey is to set up your grandfather's farm. </h1>
-                            <FarmForm userData = {user} />
+                            <h1>Welcome to the Valley, {userData.username}. The first step on your new journey is to set up your grandfather's farm. </h1>
+                            <FarmForm userData = {userData} />
                         </div>
                             :
                         <div>
                             <h1>Welcome to the Valley. The first step on your new journey is to set up your grandfather's farm. </h1>
                             
-                            <FarmForm userData = {user} />
+                            <FarmForm userData = {userData} />
                         </div>
                             }
                     </div>

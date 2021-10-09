@@ -1,20 +1,24 @@
+
+
 export const farmsReducer = (state = [], action) => {
     switch(action.type){
         case 'ADD_FARM':
+            
             return [...state, action.payload]
 
         case "FETCH_USER_FARM":
-     let farms = action.payload
+     let farm = action.payload
      let user = JSON.parse(localStorage.getItem("user"))
-     if (!user){return{state}}
-    let user_id = user.id 
+     if (user){
+        let user_id = user.id 
+     
+     return{
+     ...state, 
+                farm:farm.filter (farm => farm.user_id === user_id)
+     }
+    
+    }
 
-     return {
-                farm:
-                farms.filter (farm => farm.user_id === user_id)
-            }
-
-  
         default:
         return state
     }

@@ -25,34 +25,34 @@ skip_before_action :authorized
     farm = Farm.new(farm_params)
 
       if farm.save
-        json { render :show, status: :created, location: farm }
+        render json: farm
       else 
-      json { render json: farm.errors, status: :unprocessable_entity }
+       render json: farm.errors, status: :unprocessable_entity 
       end
     
   end
 
   # PATCH/PUT /farms/1 or /farms/1.json
-  def update
-    respond_to do |format|
-      if @farm.update(farm_params)
-        format.html { redirect_to @farm, notice: "Farm was successfully updated." }
-        format.json { render :show, status: :ok, location: @farm }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @farm.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @farm.update(farm_params)
+  #       format.html { redirect_to @farm, notice: "Farm was successfully updated." }
+  #       format.json { render :show, status: :ok, location: @farm }
+  #     else
+  #       format.html { render :edit, status: :unprocessable_entity }
+  #       format.json { render json: @farm.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /farms/1 or /farms/1.json
-  def destroy
-    @farm.destroy
-    respond_to do |format|
-      format.html { redirect_to farms_url, notice: "Farm was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
+  # def destroy
+  #   @farm.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to farms_url, notice: "Farm was successfully destroyed." }
+  #     format.json { head :no_content }
+  #   end
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

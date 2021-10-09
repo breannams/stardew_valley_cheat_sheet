@@ -21,7 +21,7 @@ export class Router extends Component {
  
     return(
         <Switch>
-            <Route exact path = "/" render={(props) => <HomePage {...props} user = {user} />} />
+            <Route exact path = "/" component = {HomePage} />
             <Route exact path = "/about" component = {AboutPage} />
             <Route exact path = '/home' component = {UserContainer} />
             <Route exact path = "/signup" component = {SignUpForm} />
