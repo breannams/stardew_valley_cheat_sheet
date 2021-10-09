@@ -1,7 +1,7 @@
 
 import './App.css';
 import React, {Component} from 'react'
-// import { NavBar } from './components/Navs/NavBar';
+import {NavBar} from './components/Navs/NavBar'
 import {connect} from 'react-redux'
 import Router from './components/Router'
 import {checkLoginStatus} from './actions/userActions'
@@ -17,8 +17,8 @@ export class App extends Component{
   return (
     <div className="App">
       <header className = "App-header">
-        {/* <NavBar /> */}
-        <Router />
+        <NavBar />
+        <Router user = {this.props.user}/>
      </header>
 
     </div>

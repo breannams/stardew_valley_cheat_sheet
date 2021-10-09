@@ -1,5 +1,6 @@
 
 import {NavLink} from 'react-router-dom'
+
 const link = {
     width: "100px",
     padding: "13px",
@@ -60,9 +61,11 @@ export const startGameButton = () => {
   </div>
     )
   }
+
+
  const handleLogout = () => {
   localStorage.clear()
- 
+ this.props.history.push("/")
  }
 
   export const logOutButton = () => {

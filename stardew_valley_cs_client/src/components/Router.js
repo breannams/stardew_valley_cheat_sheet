@@ -1,9 +1,9 @@
-import React from "react";
+import { Component } from 'react';
 import {Switch, Route, withRouter} from 'react-router-dom'
 
 import UserContainer from "../containers/UserContainer";
-import HomePage from "./HomePage";
-import AboutPage from "./Aboutpage"
+import HomePage from "./Pages/HomePage";
+import AboutPage from "./Pages/Aboutpage"
 import VillagersContainer from '../containers/VillagersContainer'
 import BuildingsContainer from '../containers/BuildingsContainer'
 import AnimalsContainer from '../containers/AnimalsContainer'
@@ -15,11 +15,13 @@ import SignUpForm from "./Forms/SignUpForm";
 import LoginForm from "./Forms/LoginForm";
 import FarmContainer from '../containers/FarmContainer'
 
-const Router = () => {
+export class Router extends Component {
+    render(){
+  const user = this.props.user
+ 
     return(
         <Switch>
-
-            <Route exact path = '/' component = {HomePage} />
+            <Route exact path = "/" render={(props) => <HomePage {...props} user = {user} />} />
             <Route exact path = "/about" component = {AboutPage} />
             <Route exact path = '/home' component = {UserContainer} />
             <Route exact path = "/signup" component = {SignUpForm} />
@@ -36,5 +38,5 @@ const Router = () => {
             
         </Switch>
     )
-}
+}}
 export default Router

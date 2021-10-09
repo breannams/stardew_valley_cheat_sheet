@@ -27,10 +27,7 @@ class FarmForm extends Component{
         }
     }
 
-    static getDerivedStateFromProps(props,state){
-
-        return {user_id: props.userData.id}
-    }
+ 
 
     render (){
 
