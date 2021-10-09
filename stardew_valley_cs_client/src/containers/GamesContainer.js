@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 import {fetchUserFarm} from '../actions/farmActions'
 import GamesPage from '../components/Pages/Gamespage'
-import FarmForm from '../components/Forms/FarmForm'
+
 export  class GamesContainer extends Component{
  
     componentDidMount(){
@@ -12,15 +12,13 @@ export  class GamesContainer extends Component{
 
     render (){
         let farm = this.props.farms.farm 
-        const userData = JSON.parse(localStorage.getItem("user"))
+     
         
         return (
             <div>
-                {farm?
+             
              < GamesPage farm = {farm}/>
-            : 
-            <FarmForm userData = {userData} />
-            }
+          
             </div>
         )
     }
