@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import {Switch, Route, withRouter} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom'
 
 import UserContainer from "../containers/UserContainer";
 import HomePage from "../components/Pages/HomePage";

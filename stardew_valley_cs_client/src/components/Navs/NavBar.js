@@ -17,33 +17,35 @@ import history from '../../helpers/history';
        
 export class NavBar extends Component {
    handleLogout = () => {
+    
         localStorage.clear()
         history.push("/")
        }
     render(){
-      
-      let user = localStorage.getItem("user")
+     
+      let user = this.props.user
       return(
         <div>
           
-            { user !==null ?
+            { user && user !== null && user.length > 0 
+            
+              ?
             <div>
-            <NavLink to = "/" exact style = {link} onClick = {this.handleLogout}> Logout </NavLink> 
-            <NavLink to = "/about" exact style = {link}>About</NavLink>
-            <NavLink to = "/games" exact style = {link}>Home</NavLink>
-            <br></br>
-            <br></br>
+              <NavLink to = "/" exact style = {link} onClick = {this.handleLogout}> Logout </NavLink> 
+              <NavLink to = "/about" exact style = {link}>About</NavLink>
+              <NavLink to = "/games" exact style = {link}>Home</NavLink>
+              <br></br>
+              <br></br>
             </div> 
             
             :
 
-                <div>
-                  
-                <NavLink to = "/about" exact style = {link}>About</NavLink>
-                <NavLink to = "/" exact style = {link}>Home </NavLink>  
+            <div>
+              <NavLink to = "/about" exact style = {link}>About</NavLink>
+              <NavLink to = "/" exact style = {link}>Home </NavLink>  
               <br></br>
               <br></br>
-                </div>
+            </div>
 }
 
 

@@ -12,12 +12,12 @@ export  class GamesContainer extends Component{
 
     render (){
         let farm = this.props.farms.farm 
-     
+        const userData = JSON.parse(localStorage.getItem("user"))
         
         return (
             <div>
              
-             < GamesPage farm = {farm}/>
+             < GamesPage farm = {farm} userData = {userData}/>
           
             </div>
         )
