@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import {NavLink} from 'react-router-dom'
 import { withRouter } from 'react-router-dom';
+import history from '../../helpers/history';
 
   const  link = {
         width: "100px",
@@ -17,10 +18,10 @@ import { withRouter } from 'react-router-dom';
 export class NavBar extends Component {
    handleLogout = () => {
         localStorage.clear()
-       this.props.history.push("/")
+        history.push("/")
        }
     render(){
-      debugger
+      
       let user = localStorage.getItem("user")
       return(
         <div>

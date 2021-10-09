@@ -5,15 +5,14 @@ export default class FarmContainer extends Component {
 
     render (){
         const userData = JSON.parse(localStorage.getItem("user"))
-        const history = this.props.history
 
         return(
             <div>
-            <h2>    Welcome To Stardew Valley  {userData.username}!
+            <h2>Welcome To Stardew Valley  {userData.username}!
                 <br></br>
                  The first step on your new journey is to set up your grandfather's farm.
             </h2>
-               <FarmForm userData = {userData} history = {history}/>
+               <FarmForm userData = {userData} />
            
             </div>
         )

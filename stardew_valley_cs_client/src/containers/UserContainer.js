@@ -14,7 +14,7 @@ class UserContainer extends Component  {
         
         return (
           <div>
-       < UserHomePage farm = {farm} history = {this.props.history}/>
+       < UserHomePage farm = {farm} />
           </div>
         );
       }

@@ -2,8 +2,8 @@ import { Component } from 'react';
 import {Switch, Route, withRouter} from 'react-router-dom'
 
 import UserContainer from "../containers/UserContainer";
-import HomePage from "./Pages/HomePage";
-import AboutPage from "./Pages/Aboutpage"
+import HomePage from "../components/Pages/HomePage";
+import AboutPage from "../components/Pages/Aboutpage"
 import VillagersContainer from '../containers/VillagersContainer'
 import BuildingsContainer from '../containers/BuildingsContainer'
 import AnimalsContainer from '../containers/AnimalsContainer'
@@ -11,8 +11,8 @@ import CropsContainer from '../containers/CropsContainer'
 import FestivalsContainer from '../containers/FestivalsContainer'
 import QuestsContainer from '../containers/QuestsContainer'
 import GamesContainer from "../containers/GamesContainer";
-import SignUpForm from "./Forms/SignUpForm";
-import LoginForm from "./Forms/LoginForm";
+import SignUpForm from "../components/Forms/SignUpForm";
+import LoginForm from "../components/Forms/LoginForm";
 import FarmContainer from '../containers/FarmContainer'
 
 export class Router extends Component {

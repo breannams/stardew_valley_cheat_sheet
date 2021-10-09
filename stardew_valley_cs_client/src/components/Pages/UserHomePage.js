@@ -1,13 +1,13 @@
 import { Component } from "react";
 import {startGameButton, logOutButton} from '../../components/Navs/HomePageNavs'
+import history from "../../helpers/history";
 
 export class UserHomePage extends Component {
 
     componentDidMount(){
         if (this.props.farm){
-   
-             this.props.history.push('/games')
-          }
+            history.push('/games')
+        }
 
     }
 

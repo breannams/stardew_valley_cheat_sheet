@@ -1,5 +1,5 @@
-
 import {NavLink} from 'react-router-dom'
+import history from '../../helpers/history';
 
 const link = {
     width: "100px",
@@ -65,7 +65,7 @@ export const startGameButton = () => {
 
  const handleLogout = () => {
   localStorage.clear()
- this.props.history.push("/")
+  history.push("/")
  }
 
   export const logOutButton = () => {

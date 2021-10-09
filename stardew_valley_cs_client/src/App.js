@@ -3,7 +3,7 @@ import './App.css';
 import React, {Component} from 'react'
 import {NavBar} from './components/Navs/NavBar'
 import {connect} from 'react-redux'
-import Router from './components/Router'
+import Router from './helpers/Router'
 import {checkLoginStatus} from './actions/userActions'
 
 export class App extends Component{

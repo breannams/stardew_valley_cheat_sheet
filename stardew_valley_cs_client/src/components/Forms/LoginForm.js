@@ -2,7 +2,7 @@ import {Component} from 'react'
 
 import { connect } from 'react-redux';
 import {loginAction} from '../../actions/userActions'
-
+import history from '../../helpers/history';
 
 
 class LoginForm extends Component {
@@ -22,11 +22,11 @@ class LoginForm extends Component {
         event.preventDefault()
         
         if (this.state.username && this.state.password){
-        this.props.loginAction(this.state)
-        this.props.history.push('/home')
+            this.props.loginAction(this.state)
+            history.push('/home')
         }
-        else
-        this.props.history.push('/login')
+        else{
+            history.push('/login')}
     }
 
    

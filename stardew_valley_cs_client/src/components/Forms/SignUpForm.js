@@ -1,7 +1,7 @@
 import { Component } from "react";
 import {signUpAction} from '../../actions/userActions'
 import {connect} from 'react-redux'
-
+import history from '../../helpers/history'
 
 export class SignUpForm extends Component{
 
@@ -23,11 +23,11 @@ export class SignUpForm extends Component{
   
         if (this.state.email && this.state.username && this.state.password){
             this.props.signUpAction(this.state)
-
-            this.props.history.push('/home') 
-                }
-        else 
-                this.props.history.push('/signup')
+            history.push('/home') 
+            }
+        else {
+                history.push('/signup')
+        }
 
     }
     

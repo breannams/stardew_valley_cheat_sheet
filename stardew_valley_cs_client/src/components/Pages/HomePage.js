@@ -1,6 +1,6 @@
 import { Component } from "react"
 import { LoginButton, SignupButton } from "../Navs/HomePageNavs"
-
+import history from "../../helpers/history"
 
 export default class HomePage extends Component {
 
@@ -8,7 +8,7 @@ export default class HomePage extends Component {
         let user = localStorage.getItem("user")
        if (user){
         if (user.length > 0){
-            this.props.history.push("/home")
+            history.push("/home")
         }}
     }
 render (){

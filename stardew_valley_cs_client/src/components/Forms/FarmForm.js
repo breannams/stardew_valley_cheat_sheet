@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {addFarm} from '../../actions/farmActions'
 import {connect} from 'react-redux'
-import {Switch, Route, withRouter} from 'react-router-dom'
+import history from '../../helpers/history'
 class FarmForm extends Component{
    state = {
         farm_name: "",
@@ -20,10 +20,10 @@ class FarmForm extends Component{
     handleSubmit = (event) => {
         event.preventDefault()
         if (this.state.farm_name && this.state.farm_type && this.state.pet_type){
-        this.props.addFarm(this.state)
-        this.props.history.push('/games')}
+            this.props.addFarm(this.state)
+            history.push('/games')}
         else {
-            this.props.history.push('/farms')
+            history.push('/farms')
         }
     }
 

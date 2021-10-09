@@ -13,13 +13,13 @@ export  class GamesContainer extends Component{
     render (){
         let farm = this.props.farms.farm 
         const userData = JSON.parse(localStorage.getItem("user"))
-        const history = this.props.history
+        
         return (
             <div>
                 {farm?
              < GamesPage farm = {farm}/>
             : 
-            <FarmForm userData = {userData} history = {history}/>
+            <FarmForm userData = {userData} />
             }
             </div>
         )
