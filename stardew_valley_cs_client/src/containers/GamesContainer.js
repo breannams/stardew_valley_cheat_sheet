@@ -5,18 +5,22 @@ import {fetchUserFarm} from '../actions/farmActions'
 import GamesPage from '../components/Pages/GamesPage'
 
 export  class GamesContainer extends Component{
- 
+    
     componentDidMount(){
             this.props.fetchUserFarm() 
       }
 
     render (){
         let farm = this.props.farm
+        let farmarr = this.props.farm[0]
+    
         return (
             <div>
-             
-             < GamesPage farm = {farm}/>
-          
+             { farm.length > 0 ?
+                < GamesPage farm = {farmarr}/>
+             :
+             < GamesPage farm = {farm} />
+             }
             </div>
         )
     }

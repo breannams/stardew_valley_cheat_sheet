@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(username: "bre", email: "irina.bearina@gmail.com", password: "testin", admin: true)
+User.create(username: "bre", email: "test@gmail.com", password: "testin", admin: true)
 Farm.create(farm_name: "Bre's Farm", farm_type: "Woodland", pet_type: "Cat", user_id: 1)
 Stardewvalley.create(name: "Stardew Valley")
 

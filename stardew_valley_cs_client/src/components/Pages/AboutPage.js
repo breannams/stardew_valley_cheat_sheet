@@ -22,7 +22,10 @@ render (){
                 - Ability to make and track more than one farm (that way if you're like me and have 1234802938012billion games going at once you can track all of them!)
                 <br></br>
                 -Pictures for game components and background changes
-        
+                <br></br>
+                -Admin and regular user roles
+                <br></br>
+                -Stay tuned for more! :)
         <br></br>
         <br></br>
    
