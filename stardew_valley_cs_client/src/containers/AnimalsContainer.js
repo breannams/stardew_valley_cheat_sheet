@@ -1,7 +1,8 @@
 import {Component} from 'react'
 import {connect} from 'react-redux'
-import GameNavBar from '../components/Navs/GameNav'
+
 import {fetchAnimals} from '../actions/animalActions'
+import AnimalsPage from '../components/Pages/AnimalsPage'
 
 export class AnimalsContainer extends Component{
     
@@ -10,32 +11,10 @@ export class AnimalsContainer extends Component{
     }
 
     render (){
-
+        let animals = this.props.animals
         return (
             <>
-            <br></br>
-                  {GameNavBar()}
-                <div>  
-                    <h1>Animals:</h1>
-                    
-                      {
-                          this.props.animals.map(animal => {debugger}
-                        //   <div>
-                        //     <li key = {animal.id}><h2><u> {animal.name}</u></h2> </li>
-                        //      <h4>
-                        //         cost: {animal.cost} <br></br>
-                        //         requirements: {animal.requirements} <br></br>
-                        //         produces: {animal.produce}<br></br>
-                        //         5 heart sell price: {animal.sell_price}<br></br>
-                        //      </h4> 
-                            
-                        //     </div>
-                          )
-                      }
-                      
-                </div>
-                
-
+            < AnimalsPage animals = {animals} />
             </>
             
         )
