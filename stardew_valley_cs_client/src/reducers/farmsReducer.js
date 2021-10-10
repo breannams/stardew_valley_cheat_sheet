@@ -12,10 +12,10 @@ export const farmsReducer = (state = [], action) => {
      if (user){
         let user_id = user.id 
      
-     return[
+     return{
      ...state, 
-                farm.filter (farm => farm.user_id === user_id)
-     ]
+             farm:   farm.filter (farm => farm.user_id === user_id)
+     }
     
     }
 

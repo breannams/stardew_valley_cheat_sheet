@@ -11,7 +11,7 @@ export  class GamesContainer extends Component{
       }
 
     render (){
-        let farm = this.props.farms.farm 
+        let farm = this.props.farms
         const userData = JSON.parse(localStorage.getItem("user"))
         
         return (
@@ -27,7 +27,7 @@ export  class GamesContainer extends Component{
 const mapStateToProps = (state) => {
 
     return{
-  farms: state.farms
+  farms: state.farms.farm
 }
 }
 

@@ -42,7 +42,7 @@ class FarmForm extends Component{
     
 
     render (){
-debugger
+
         return(
             <>
             <form onSubmit = {this.handleSubmit}>
