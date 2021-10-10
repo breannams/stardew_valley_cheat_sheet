@@ -11,9 +11,14 @@ export class BuildingsContainer extends Component{
     }
     render(){
         let buildings = this.props.buildings
+        let buildingsarr = this.props.buildings[0]
         return(
-            <>
-                <BuildingsPage buildings = {buildings} />          
+            <> 
+                { buildings.length > 0 ?
+                    <BuildingsPage buildings = {buildingsarr} /> 
+                    :
+                    <BuildingsPage buildings = {buildings} />
+                }   
             </>
         )
     }

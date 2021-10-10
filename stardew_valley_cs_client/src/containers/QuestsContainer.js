@@ -1,8 +1,8 @@
 import {Component} from 'react'
 import {connect} from 'react-redux'
-import GameNavBar from '../components/Navs/GameNav'
-import {fetchQuests} from '../actions/questsActions'
 
+import {fetchQuests} from '../actions/questsActions'
+import QuestsPage from '../components/Pages/QuestsPage'
 
 export class QuestsContainer extends Component{
 
@@ -11,27 +11,18 @@ export class QuestsContainer extends Component{
     }
 
     render (){
+        let quests = this.props.quests
+        let questsarr = this.props.quests[0]
+    
         return (
             <>
-                <br></br>
-                  {GameNavBar()}
-                  <div>
-                      <h1>Quests:</h1>
-                      {
-                          this.props.quests.map(quest =>
-                            <div key = {quest.id}>
-                                <h2><u>{quest.name}</u></h2>
-                                    <h4>
-                                        quest type: {quest.type}<br></br>
-                                        description: {quest.description}<br></br>
-                                        start by: {quest.start_by}<br></br>
-                                        requirements to complete: {quest.requirements}<br></br> 
-                                        rewards: {quest.rewards}<br></br>
-                                    </h4>
-                            </div>
-                            )
-                      }
-                  </div>
+            
+            { quests.length > 0 ?
+            <QuestsPage quests = {questsarr} />
+            :
+            < QuestsPage quests = {quests} />
+        }
+                
             </>
         )
     }
@@ -39,7 +30,7 @@ export class QuestsContainer extends Component{
 
 
 const mapStateToProps = (state) => {
-    return {quests: state.quests}
+    {return {quests: state.quests}}
 }
 
 export default connect(mapStateToProps, {fetchQuests})(QuestsContainer)

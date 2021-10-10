@@ -9,9 +9,14 @@ export  class FestivalsContainer extends Component{
     }
     render (){
         let festivals = this.props.festivals
+        let festivalsarr = this.props.festivals[0]
         return (
             <>  
-            <FestivalsPage festivals = {festivals}/>
+                {   festivals.length > 0 ?
+                    <FestivalsPage festivals = {festivalsarr}/>
+                    :
+                    <FestivalsPage festivals = {festivals} />
+                }
             </>
         )
     }

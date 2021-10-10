@@ -4,7 +4,7 @@ import GameNavBar from '../../components/Navs/GameNav'
 export default class FestivalsPage extends Component {
 
     render () {
-        let festivals = this.props.festivals[0]
+        let festivals = this.props.festivals
         return (
             <div>
                 <br></br>

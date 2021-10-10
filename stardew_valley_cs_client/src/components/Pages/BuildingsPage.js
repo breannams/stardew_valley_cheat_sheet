@@ -4,7 +4,7 @@ import GameNavBar from '../../components/Navs/GameNav'
 export default class BuildingsPage extends Component {
 
     render () {
-        let buildings = this.props.buildings[0]
+        let buildings = this.props.buildings
         return(
             <div>
                 <br></br>

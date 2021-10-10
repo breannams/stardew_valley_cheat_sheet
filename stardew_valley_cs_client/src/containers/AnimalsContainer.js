@@ -12,9 +12,14 @@ export class AnimalsContainer extends Component{
 
     render (){
         let animals = this.props.animals
+        let animalsarr = this.props.animals[0]
         return (
             <>
-            < AnimalsPage animals = {animals} />
+                { animals.length > 0 ?
+                    < AnimalsPage animals = {animalsarr} />
+                    :
+                    <AnimalsPage animals = {animals} />
+                }   
             </>
             
         )

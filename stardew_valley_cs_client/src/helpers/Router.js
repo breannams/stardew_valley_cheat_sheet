@@ -3,7 +3,7 @@ import {Switch, Route} from 'react-router-dom'
 
 import UserContainer from "../containers/UserContainer";
 import HomePage from "../components/Pages/HomePage";
-import AboutPage from "../components/Pages/Aboutpage"
+import AboutPage from "../components/Pages/AboutPage"
 import VillagersContainer from '../containers/VillagersContainer'
 import BuildingsContainer from '../containers/BuildingsContainer'
 import AnimalsContainer from '../containers/AnimalsContainer'

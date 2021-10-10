@@ -3,7 +3,7 @@ import GameNavBar from '../../components/Navs/GameNav'
 
 export default class AnimalsPage extends Component{
 render (){
-    let animals = this.props.animals[0]
+    let animals = this.props.animals
 
             return (
                 <>

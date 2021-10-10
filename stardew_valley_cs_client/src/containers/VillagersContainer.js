@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import {connect} from 'react-redux'
 import  {fetchVillagers}  from '../actions/villagerActions'
-import GameNavBar from '../components/Navs/GameNav'
+import VillagersPage from '../components/Pages/VillagersPage'
 
 export class VillagersContainer extends Component{
 
@@ -10,26 +10,15 @@ componentDidMount(){
 }
 
 render(){
+    let villagers = this.props.villagers
+    let villagersarr = this.props.villagers[0]
     return(
         <>
-        <br></br>
-              {GameNavBar()}
-              <div>
-                  <h1>Villagers:</h1>
-                  {
-                      this.props.villagers.map(villager =>
-                        <div key = {villager.id}>
-                            <h2><u>{villager.name}</u></h2>
-                            <h4>
-                                birthday: {villager.birthday}<br></br>
-                                best gifts: {villager.gifts}<br></br>
-                                heart events at {villager.heartevents} heart levels <br></br>
-                                available to marry? {villager.marriage === true ? "Yes" : "No"}
-                            </h4>
-                        </div>
-                        )
-                  }
-              </div>
+            { villagers.length > 0 ?
+                <VillagersPage villagers = {villagersarr} />
+                :
+                <VillagersPage villagers = {villagers} />
+            }
         </>
     )
 }
