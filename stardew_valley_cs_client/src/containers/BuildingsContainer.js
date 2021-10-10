@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import {connect} from 'react-redux'
 import { fetchBuildings } from '../actions/buildingActions'
-import GameNavBar from '../components/Navs/GameNav'
+import BuildingsPage from '../components/Pages/BuildingsPage'
 
 
 export class BuildingsContainer extends Component{
@@ -10,27 +10,10 @@ export class BuildingsContainer extends Component{
         this.props.fetchBuildings()
     }
     render(){
+        let buildings = this.props.buildings
         return(
             <>
-            <br></br>
-                  {GameNavBar()}
-                  <div>
-                  <h1>Buildings:</h1>
-                  {
-                      this.props.buildings.map(building =>
-                        <div>
-                            <ul>
-                            <h2 key = {building.id}><u>{building.name}</u></h2>
-                            </ul>
-                            <h4>
-                                cost: {building.cost}<br></br>
-                                Uses: {building.use}
-                            </h4>
-                            
-                        </div>
-                        )
-                  }
-                  </div>
+                <BuildingsPage buildings = {buildings} />          
             </>
         )
     }
