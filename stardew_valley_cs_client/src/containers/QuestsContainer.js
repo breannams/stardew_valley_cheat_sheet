@@ -30,7 +30,7 @@ export class QuestsContainer extends Component{
 
 
 const mapStateToProps = (state) => {
-    {return {quests: state.quests}}
+    return {quests: state.quests}
 }
 
 export default connect(mapStateToProps, {fetchQuests})(QuestsContainer)

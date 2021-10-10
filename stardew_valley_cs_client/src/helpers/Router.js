@@ -16,7 +16,6 @@ import FarmContainer from '../containers/FarmContainer'
 
 export class Router extends Component {
     render(){
-  const user = this.props.user
  
     return(
         <Switch>
