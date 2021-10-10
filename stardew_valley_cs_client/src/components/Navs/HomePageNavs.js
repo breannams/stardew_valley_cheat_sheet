@@ -66,6 +66,7 @@ export const startGameButton = () => {
  const handleLogout = () => {
   localStorage.clear()
   history.push("/")
+  window.location.reload()
  }
 
   export const logOutButton = () => {

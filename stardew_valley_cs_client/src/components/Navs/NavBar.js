@@ -20,6 +20,7 @@ export class NavBar extends Component {
     
         localStorage.clear()
         history.push("/")
+        window.location.reload()
        }
     render(){
      
