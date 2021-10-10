@@ -6,19 +6,20 @@ class UserContainer extends Component  {
   
   componentDidMount(){
     this.props.fetchUserFarm() 
-    let userData = JSON.parse(localStorage.getItem("user"))
-    if (!userData){
-      this.props.history.push("/")
-    }
+
   }
 
       render (){
-        const farm = this.props.farm
-    
+        let farm = this.props.farm
+        let farmarr = this.props.farm[0]
         let userData = JSON.parse(localStorage.getItem("user"))
         return (
           <div>
-       < UserHomePage farm = {farm} userData = {userData}/>
+            { farm.length > 0 ?
+                < UserHomePage farm = {farmarr} userData = {userData}/>
+                :
+                <UserHomePage farm = {farm} userData = {userData} />
+            }
           </div>
         );
       }
