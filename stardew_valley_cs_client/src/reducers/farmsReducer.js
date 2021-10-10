@@ -11,11 +11,11 @@ export const farmsReducer = (state = [], action) => {
      let user = JSON.parse(localStorage.getItem("user"))
      if (user){
         let user_id = user.id 
-     
-     return{
+      
+    return[
      ...state, 
-             farm:   farm.filter (farm => farm.user_id === user_id)
-     }
+                farm.filter (farm => farm.user_id === user_id)
+    ]
     
     }
 

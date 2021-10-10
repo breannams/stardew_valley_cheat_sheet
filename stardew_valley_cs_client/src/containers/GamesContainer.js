@@ -2,7 +2,7 @@ import {Component} from 'react'
 import {connect} from 'react-redux'
 
 import {fetchUserFarm} from '../actions/farmActions'
-import GamesPage from '../components/Pages/Gamespage'
+import GamesPage from '../components/Pages/GamesPage'
 
 export  class GamesContainer extends Component{
  
@@ -11,13 +11,11 @@ export  class GamesContainer extends Component{
       }
 
     render (){
-        let farm = this.props.farms
-        const userData = JSON.parse(localStorage.getItem("user"))
-        
+        let farm = this.props.farm
         return (
             <div>
              
-             < GamesPage farm = {farm} userData = {userData}/>
+             < GamesPage farm = {farm}/>
           
             </div>
         )
@@ -27,7 +25,7 @@ export  class GamesContainer extends Component{
 const mapStateToProps = (state) => {
 
     return{
-  farms: state.farms.farm
+  farm: state.farms
 }
 }
 

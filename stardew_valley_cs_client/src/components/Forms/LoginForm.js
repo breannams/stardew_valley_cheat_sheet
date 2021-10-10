@@ -23,7 +23,7 @@ class LoginForm extends Component {
         
         if (this.state.username && this.state.password){
             this.props.loginAction(this.state)
-            history.push('/home')
+            history.push('/games')
         }
         else{
             history.push('/login')}

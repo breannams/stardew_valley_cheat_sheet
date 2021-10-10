@@ -23,7 +23,7 @@ export class SignUpForm extends Component{
   
         if (this.state.email && this.state.username && this.state.password){
             this.props.signUpAction(this.state)
-            history.push('/home') 
+            history.push('/games') 
             }
         else {
                 history.push('/signup')

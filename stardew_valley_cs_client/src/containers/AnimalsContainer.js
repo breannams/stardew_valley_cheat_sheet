@@ -10,7 +10,7 @@ export class AnimalsContainer extends Component{
     }
 
     render (){
-       
+
         return (
             <>
             <br></br>
@@ -19,17 +19,17 @@ export class AnimalsContainer extends Component{
                     <h1>Animals:</h1>
                     
                       {
-                          this.props.animals.map(animal => 
-                          <div>
-                            <h2 key = {animal.id}><u> {animal.name}</u></h2> 
-                             <h4>
-                                cost: {animal.cost} <br></br>
-                                requirements: {animal.requirements} <br></br>
-                                produces: {animal.produce}<br></br>
-                                5 heart sell price: {animal.sell_price}<br></br>
-                             </h4> 
+                          this.props.animals.map(animal => {debugger}
+                        //   <div>
+                        //     <li key = {animal.id}><h2><u> {animal.name}</u></h2> </li>
+                        //      <h4>
+                        //         cost: {animal.cost} <br></br>
+                        //         requirements: {animal.requirements} <br></br>
+                        //         produces: {animal.produce}<br></br>
+                        //         5 heart sell price: {animal.sell_price}<br></br>
+                        //      </h4> 
                             
-                            </div>
+                        //     </div>
                           )
                       }
                       

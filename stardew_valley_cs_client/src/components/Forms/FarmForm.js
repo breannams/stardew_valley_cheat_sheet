@@ -21,7 +21,7 @@ class FarmForm extends Component{
         event.preventDefault()
         if (this.state.farm_name && this.state.farm_type && this.state.pet_type){
             this.props.addFarm(this.state)
-            history.push('/games')}
+            history.push('/home')}
         else {
             history.push('/farms')
         }
