@@ -1,18 +1,11 @@
 class UsersController < ApplicationController
-   skip_before_action :authorized
-
-   def home
-    render json: user
-   end
-
+   skip_before_action :authorized, except: [:auto_login]
 
    def index
     user = User.all 
     render json: user
-
    end
 
-   
    def create
     user = User.create(user_params)
     if user.valid?
@@ -21,7 +14,6 @@ class UsersController < ApplicationController
        render json: {user: user, jwt: token},status: :created
     else
       render json: {errors: user.errors.full_messages}
- 
     end
   end
 
@@ -40,13 +32,8 @@ class UsersController < ApplicationController
   end
 
   def auto_login
-    if current_user
       render json: current_user
-    else
-      render json: {errors: "No User Logged In."}
-    end
   end
-
 
   private
 

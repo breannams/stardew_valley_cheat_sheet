@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :villagers
   resources :games
   
-  resources :users 
+  resources :users, only: [:create, :index]
   post '/login', to: 'users#login'
   get "/auto_login", to: "users#auto_login"
 
