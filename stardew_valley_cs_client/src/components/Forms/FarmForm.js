@@ -9,7 +9,11 @@ class FarmForm extends Component{
         pet_type: "",
         user_id: ""
    }
-
+componentDidMount(){
+    
+        this.setState({user_id: this.props.userData.id})
+    
+}
     handleChange = (event) => {
       this.setState({
             [event.target.name]: event.target.value
@@ -26,20 +30,6 @@ class FarmForm extends Component{
             history.push('/farms')
         }
     }
-
-    static getDerivedStateFromProps(props,state){
-        let user = JSON.parse(localStorage.getItem("user"))
-        if (user){
-            if (user.id !== state.user_id)
-            return {
-                user_id: user.id
-            } 
-            return null
-        }
-
-       }
-       
-    
 
     render (){
 
