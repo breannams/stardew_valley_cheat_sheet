@@ -5,7 +5,6 @@ export default class FarmContainer extends Component {
 
     render (){
         const userData = JSON.parse(localStorage.getItem("user"))
-
         return(
             <div>
             <h2>Welcome To Stardew Valley  {userData.username}!

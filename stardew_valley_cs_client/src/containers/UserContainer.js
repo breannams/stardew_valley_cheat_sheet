@@ -8,7 +8,6 @@ class UserContainer extends Component  {
 
   componentDidMount(){
     this.props.fetchUserFarm() 
-
     if (!this.props.farm ){
     history.push('/games')}
 }

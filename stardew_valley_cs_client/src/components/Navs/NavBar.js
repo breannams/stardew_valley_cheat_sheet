@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import {NavLink} from 'react-router-dom'
-import { withRouter } from 'react-router-dom';
+
 import history from '../../helpers/history';
 
   const  link = {
@@ -55,4 +55,4 @@ export class NavBar extends Component {
     }
 }
 
-export default withRouter(NavBar)
+export default NavBar

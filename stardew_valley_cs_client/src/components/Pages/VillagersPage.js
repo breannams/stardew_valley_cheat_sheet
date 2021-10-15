@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import GameNavBar from '../../components/Navs/GameNav'
+import GameNavBar from '../../components/Navs/GameNavBar'
 
 export default class VillagersPage extends Component {
     render () {

@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import GameNavBar from '../Navs/GameNav'
+import GameNavBar from '../Navs/GameNavBar'
 
 
 export class UserHomePage extends Component {

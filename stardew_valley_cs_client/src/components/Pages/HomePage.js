@@ -1,5 +1,5 @@
 import { Component } from "react"
-import { LoginButton, SignupButton } from "../Navs/HomePageNavs"
+import { LoginButton, SignupButton } from "../Navs/NavButtons"
 import history from "../../helpers/history"
 
 export default class HomePage extends Component {

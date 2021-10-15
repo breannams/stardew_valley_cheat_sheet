@@ -1,5 +1,5 @@
 import { Component } from "react";
-import {startGameButton, logOutButton} from '../Navs/HomePageNavs'
+import {startGameButton, logOutButton} from '../Navs/NavButtons'
 import history from "../../helpers/history";
 
 export class GamesPage extends Component {
