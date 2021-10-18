@@ -4,11 +4,6 @@ import GameNavBar from '../Navs/GameNavBar'
 
 export class UserHomePage extends Component {
 
-    componentDidUpdate (prevProps) {
-        if (this.props.farm !== prevProps.farm){
-        this.setState({farm: this.props.farm}) 
-        }
-    }
     render(){
         let farm = this.props.farm
         return(

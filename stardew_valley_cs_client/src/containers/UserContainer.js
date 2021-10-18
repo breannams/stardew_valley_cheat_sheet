@@ -7,16 +7,19 @@ import history from "../helpers/history";
 class UserContainer extends Component  {
 
   componentDidMount(){
+
     this.props.fetchUserFarm() 
     if (!this.props.farm ){
     history.push('/games')}
+    if(localStorage.length === 0){
+      history.push("/")
+    }
 }
-  
+   
 
       render (){
         let farm = this.props.farm
         let farmarr = this.props.farm[0]
-        
         return (
           <div>
             { farm.length > 0 ?

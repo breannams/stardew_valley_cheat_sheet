@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import GameNavBar from '../../components/Navs/GameNavBar'
-
+import LikeButton from '../buttons/likebutton'
 export default class QuestsPage extends Component{
     
     render(){
@@ -22,6 +22,7 @@ export default class QuestsPage extends Component{
                                         requirements to complete: {quest.requirements}<br></br> 
                                         rewards: {quest.rewards}<br></br>
                                     </h4>
+                                    <LikeButton />
                             </div>
                             )
                       }

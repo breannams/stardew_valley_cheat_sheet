@@ -33,7 +33,7 @@ export class Router extends Component {
             <Route path = "/quests" component = {QuestsContainer} />
             <Route path = "/games" component = {GamesContainer} />
             <Route path = "/farms" component = {FarmContainer} />
-            
+          
         </Switch>
     )
 }}

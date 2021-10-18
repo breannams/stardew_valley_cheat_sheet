@@ -3,17 +3,20 @@ import {addFarm} from '../../actions/farmActions'
 import {connect} from 'react-redux'
 import history from '../../helpers/history'
 class FarmForm extends Component{
-   state = {
-        farm_name: "",
-        farm_type: "",
-        pet_type: "",
-        user_id: ""
-   }
-componentDidMount(){
+   constructor(){
+        super()
+        this.state = {
+            farm_name: "",
+            farm_type: "",
+            pet_type: "",
+            user_id: ""
+        }
+    }
+    componentDidMount(){
     
         this.setState({user_id: this.props.userData.id})
     
-}
+    }
     handleChange = (event) => {
       this.setState({
             [event.target.name]: event.target.value

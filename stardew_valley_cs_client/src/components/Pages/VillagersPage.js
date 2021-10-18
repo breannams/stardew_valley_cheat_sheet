@@ -1,9 +1,11 @@
 import {Component} from 'react'
 import GameNavBar from '../../components/Navs/GameNavBar'
-
+import LikeButton from '../buttons/likebutton'
 export default class VillagersPage extends Component {
+
     render () {
         let villagers = this.props.villagers
+
         return(
             <div>
                   <br></br>
@@ -19,6 +21,8 @@ export default class VillagersPage extends Component {
                                 best gifts: {villager.gifts}<br></br>
                                 heart events at {villager.heartevents} heart levels <br></br>
                                 available to marry? {villager.marriage === true ? "Yes" : "No"}
+                                <br></br>
+                             <LikeButton />
                             </h4>
                         </div>
                         )

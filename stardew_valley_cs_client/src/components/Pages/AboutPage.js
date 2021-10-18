@@ -1,8 +1,7 @@
-import { Component } from "react"
 
-export default class HomePage extends Component {
+export const AboutPage = () => {
 
-render (){
+
     return (
         <div>
             <br></br>
@@ -31,7 +30,8 @@ render (){
    
         </div>
     )
-}
 
 
+
 }
+export default AboutPage

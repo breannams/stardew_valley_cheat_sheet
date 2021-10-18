@@ -5,12 +5,11 @@ import history from "../../helpers/history"
 export default class HomePage extends Component {
 
     componentDidMount () {
-        let user = localStorage.getItem("user")
-       if (user){
-        if (user.length > 0){
+        if (localStorage.length > 0){
             history.push("/home")
-        }}
+        }
     }
+
 render (){
     
     return (

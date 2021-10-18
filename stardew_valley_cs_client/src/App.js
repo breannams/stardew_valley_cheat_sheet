@@ -18,7 +18,7 @@ export class App extends Component{
     <div className="App">
       <header className = "App-header">
         <NavBar user = {this.props.user}/>
-        <Router user />
+        <Router/>
      </header>
 
     </div>
